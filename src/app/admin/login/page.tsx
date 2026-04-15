@@ -15,7 +15,7 @@ export default function AdminLoginPage() {
           <h1 className="font-heading text-h1 text-stick-walnut">Durham Stick Makers</h1>
           <p className="mt-2 text-small text-stick-driftwood uppercase tracking-[0.15em]">Admin sign-in</p>
         </div>
-        <div className="rounded-card bg-white p-8 shadow-sm border border-stick-stone">
+        <div className="rounded-card bg-stick-surface p-8 shadow-sm border border-stick-stone">
           <Suspense fallback={<div className="text-stick-driftwood text-sm">Loading…</div>}>
             <LoginForm />
           </Suspense>

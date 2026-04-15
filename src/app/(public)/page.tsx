@@ -232,7 +232,7 @@ export default async function HomePage() {
               </>
             )}
           </div>
-          <div className="rounded-card bg-stick-linen p-8 shadow-[0_1px_0_#EDEAE4]">
+          <div className="rounded-card bg-stick-linen p-8 shadow-[0_1px_0_#E4E7EC]">
             <p className="label-caps">Regular sessions</p>
             <ul className="mt-4 space-y-3 text-stick-shale">
               {config.opening_hours.regular_sessions.map((s) => (

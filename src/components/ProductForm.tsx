@@ -416,7 +416,7 @@ export function ProductForm({ initial, categories, makers, materials, mode }: Pr
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-card border border-stick-stone bg-white p-5 md:p-6 space-y-4">
+    <div className="rounded-card border border-stick-stone bg-stick-surface p-5 md:p-6 space-y-4">
       <h2 className="font-heading text-h3">{title}</h2>
       {children}
     </div>

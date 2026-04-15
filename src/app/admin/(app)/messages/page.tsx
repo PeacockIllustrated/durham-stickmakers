@@ -34,7 +34,7 @@ export default async function AdminMessagesPage() {
       )}
 
       {messages.length === 0 ? (
-        <div className="rounded-card border border-dashed border-stick-stone bg-white p-10 text-center text-stick-driftwood">
+        <div className="rounded-card border border-dashed border-stick-stone bg-stick-surface p-10 text-center text-stick-driftwood">
           Inbox is empty.
         </div>
       ) : (

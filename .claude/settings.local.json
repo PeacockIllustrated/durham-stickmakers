@@ -13,7 +13,9 @@
       "Bash(cp \"stick-images/homepage/01-service-card--bespoke-walking-sticks.jpg\" \"public/images/homepage/bespoke-walking-sticks.jpg\")",
       "Bash(cp \"stick-images/homepage/02-service-card--repairs-and-restorations.jpg\" \"public/images/homepage/repairs-and-restorations.jpg\")",
       "Bash(cp \"stick-images/homepage/03-service-card--workshops-shows-demos.jpg\" \"public/images/homepage/workshops-shows-demos.jpg\")",
-      "Bash(cp \"stick-images/gallery/01-collection-panoramic-wide.jpg\" \"public/images/gallery/collection-panoramic-wide.jpg\")"
+      "Bash(cp \"stick-images/gallery/01-collection-panoramic-wide.jpg\" \"public/images/gallery/collection-panoramic-wide.jpg\")",
+      "Bash(awk -F= '/^[A-Z]/ && $2 != \"\" && $2 !~ /^\\(sk_test_xxx|pk_test_xxx|whsec_xxx|your-|https:\\\\/\\\\/your-|http:\\\\/\\\\/localhost\\)/ { print $1 \": SET\" } /^[A-Z]/ && \\($2 == \"\" || $2 ~ /^\\(sk_test_xxx|pk_test_xxx|whsec_xxx|your-|https:\\\\/\\\\/your-|http:\\\\/\\\\/localhost\\)/\\) { print $1 \": missing/placeholder\" }' .env.local)",
+      "Bash(npm run *)"
     ]
   }
 }

@@ -188,21 +188,21 @@ export function ImageUploader({
                       type="button"
                       onClick={() => move(i, i - 1)}
                       disabled={i === 0}
-                      className="rounded bg-white/80 px-1.5 text-xs text-stick-walnut disabled:opacity-30"
+                      className="rounded bg-stick-surface/80 px-1.5 text-xs text-stick-walnut disabled:opacity-30"
                       aria-label="Move left"
                     >‹</button>
                     <button
                       type="button"
                       onClick={() => move(i, i + 1)}
                       disabled={i === value.length - 1}
-                      className="rounded bg-white/80 px-1.5 text-xs text-stick-walnut disabled:opacity-30"
+                      className="rounded bg-stick-surface/80 px-1.5 text-xs text-stick-walnut disabled:opacity-30"
                       aria-label="Move right"
                     >›</button>
                   </div>
                   <button
                     type="button"
                     onClick={() => remove(i)}
-                    className="rounded bg-white/90 px-2 py-0.5 text-[10px] uppercase tracking-wider text-red-700"
+                    className="rounded bg-stick-surface/90 px-2 py-0.5 text-[10px] uppercase tracking-wider text-red-700"
                   >
                     Remove
                   </button>

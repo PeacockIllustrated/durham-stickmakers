@@ -39,7 +39,7 @@ export default async function ShopPage() {
 
         <div className="mt-12">
           {products.length === 0 ? (
-            <div className="grid gap-0 lg:grid-cols-5 overflow-hidden rounded-card border border-stick-stone bg-white">
+            <div className="grid gap-0 lg:grid-cols-5 overflow-hidden rounded-card border border-stick-stone bg-stick-surface">
               <div className="relative aspect-[4/3] lg:aspect-auto lg:col-span-3 bg-stick-stone">
                 <Image
                   src={previewImage.src}

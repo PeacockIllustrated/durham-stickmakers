@@ -41,7 +41,7 @@ export function MessageRow({ message }: { message: StickContactSubmission }) {
   return (
     <li
       className={cn(
-        'rounded-card border bg-white transition-colors',
+        'rounded-card border bg-stick-surface transition-colors',
         isRead ? 'border-stick-stone' : 'border-stick-brass/60'
       )}
     >

@@ -21,7 +21,7 @@
 
   ::selection {
     background-color: #C4A265;
-    color: #2C2417;
+    color: #2F3842;
   }
 }
 
@@ -67,7 +67,7 @@
   }
 
   .input {
-    @apply w-full rounded-md border border-stick-stone bg-white px-3 py-2 font-body text-sm text-stick-walnut placeholder:text-stick-driftwood focus:border-stick-brass focus:outline-none focus:ring-1 focus:ring-stick-brass;
+    @apply w-full rounded-md border border-stick-stone bg-stick-surface px-3 py-2 font-body text-sm text-stick-walnut placeholder:text-stick-driftwood focus:border-stick-brass focus:outline-none focus:ring-1 focus:ring-stick-brass;
   }
 
   .input-label {

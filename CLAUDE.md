@@ -94,15 +94,19 @@ Key-value config store. Fields: `key` (unique), `value` (jsonb). Used for: chari
 
 ```js
 // tailwind.config.js colors
+// Palette note: original brown/walnut hues were replaced with slate-blue hues
+// pulled from the brand's existing site. Token names are kept for minimal-diff
+// migration — "walnut" now refers to a deep slate, "driftwood" to a muted slate, etc.
+// Brass (gold/amber) is retained as the accent — slate + brass is a classic heritage combo.
 stick: {
-  walnut:    '#2C2417',  // Headlines, nav, dark UI, primary buttons
-  shale:     '#555248',  // Body text
-  linen:     '#FAFAF8',  // Primary background
-  brass:     '#C4A265',  // Primary accent, CTAs, links, hover
-  stone:     '#EDEAE4',  // Cards, secondary backgrounds, dividers
-  fell:      '#3D5E4A',  // Success states, secondary accent, heritage badge
-  driftwood: '#8A7D6B',  // Muted text, borders, metadata
-  cream:     '#F0EDE7',  // Tags, badges, subtle fills
+  walnut:    '#2F3842',  // Deep slate — headlines, nav, dark UI, primary buttons
+  shale:     '#4A5563',  // Medium slate — body text
+  linen:     '#FAFAF8',  // Warm off-white — primary background
+  brass:     '#C4A265',  // Brass / amber — primary accent, CTAs, links, hover
+  stone:     '#E4E7EC',  // Cool pale grey — cards, secondary backgrounds, dividers
+  fell:      '#3D5E4A',  // Heritage green — success states, secondary accent
+  driftwood: '#7A8593',  // Muted slate — metadata, borders
+  cream:     '#EEF0F3',  // Cool pale — tags, badges, subtle fills
 }
 ```
 

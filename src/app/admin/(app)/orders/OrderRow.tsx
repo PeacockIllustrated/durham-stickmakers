@@ -58,7 +58,7 @@ export function OrderRow({ order }: { order: StickOrder }) {
   const subtotal = order.total_pence - order.shipping_pence;
 
   return (
-    <li className="rounded-card border border-stick-stone bg-white">
+    <li className="rounded-card border border-stick-stone bg-stick-surface">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}

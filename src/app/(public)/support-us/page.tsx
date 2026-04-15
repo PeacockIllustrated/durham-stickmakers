@@ -88,7 +88,7 @@ export default function SupportUsPage() {
             {WAYS.map((way) => (
               <article
                 key={way.title}
-                className="rounded-card border border-stick-stone bg-white p-6 md:p-8 space-y-3 hover:border-stick-brass transition-colors"
+                className="rounded-card border border-stick-stone bg-stick-surface p-6 md:p-8 space-y-3 hover:border-stick-brass transition-colors"
               >
                 <h3 className="font-heading text-h3">{way.title}</h3>
                 <p className="text-stick-shale leading-relaxed">{way.body}</p>

@@ -26,7 +26,7 @@ export default async function ContactPage() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
-            <div className="rounded-card border border-stick-stone bg-white p-6 md:p-8">
+            <div className="rounded-card border border-stick-stone bg-stick-surface p-6 md:p-8">
               <h2 className="font-heading text-h2">Send us a message</h2>
               <p className="mt-2 text-small text-stick-driftwood">
                 All fields marked <span className="text-stick-brass">*</span> are required.

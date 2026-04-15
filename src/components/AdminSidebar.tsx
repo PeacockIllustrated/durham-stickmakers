@@ -19,7 +19,7 @@ export function AdminSidebar({ userEmail }: { userEmail: string }) {
   const pathname = usePathname();
 
   return (
-    <aside className="flex w-60 shrink-0 flex-col border-r border-stick-stone bg-white">
+    <aside className="flex w-60 shrink-0 flex-col border-r border-stick-stone bg-stick-surface">
       <div className="px-5 py-5 border-b border-stick-stone">
         <Link href="/admin" className="font-heading text-h4 leading-none text-stick-walnut no-underline">
           Durham Stick Makers

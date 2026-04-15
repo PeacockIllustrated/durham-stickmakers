@@ -44,7 +44,7 @@ export default async function AdminDashboard() {
           <Link
             key={c.label}
             href={c.href}
-            className="rounded-card border border-stick-stone bg-white p-5 no-underline hover:border-stick-brass transition-colors"
+            className="rounded-card border border-stick-stone bg-stick-surface p-5 no-underline hover:border-stick-brass transition-colors"
           >
             <p className="label-caps">{c.label}</p>
             <p className="mt-2 font-heading text-[2.25rem] leading-none text-stick-walnut">{c.value}</p>
@@ -53,7 +53,7 @@ export default async function AdminDashboard() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-card border border-stick-stone bg-white p-6">
+        <div className="rounded-card border border-stick-stone bg-stick-surface p-6">
           <h2 className="font-heading text-h3">Quick actions</h2>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link href="/admin/products/new" className="text-stick-walnut hover:text-stick-brass">→ Add a new stick listing</Link></li>
@@ -62,7 +62,7 @@ export default async function AdminDashboard() {
             <li><Link href="/admin/settings" className="text-stick-walnut hover:text-stick-brass">→ Update site info</Link></li>
           </ul>
         </div>
-        <div className="rounded-card border border-stick-stone bg-white p-6">
+        <div className="rounded-card border border-stick-stone bg-stick-surface p-6">
           <h2 className="font-heading text-h3">Tips</h2>
           <ul className="mt-4 space-y-2 text-sm text-stick-shale leading-relaxed">
             <li>· Upload multiple photos per stick — drag the first image to set it as primary.</li>

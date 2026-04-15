@@ -77,13 +77,13 @@ export default async function AdminProductsPage({
       )}
 
       {products.length === 0 ? (
-        <div className="rounded-card border border-dashed border-stick-stone bg-white p-10 text-center text-stick-driftwood">
+        <div className="rounded-card border border-dashed border-stick-stone bg-stick-surface p-10 text-center text-stick-driftwood">
           <p className="font-heading text-h3 text-stick-walnut">No products yet</p>
           <p className="mt-2 text-small">Add your first stick to get the shop started.</p>
           <Link href="/admin/products/new" className="btn-primary mt-5">+ New listing</Link>
         </div>
       ) : (
-        <div className="overflow-x-auto rounded-card border border-stick-stone bg-white">
+        <div className="overflow-x-auto rounded-card border border-stick-stone bg-stick-surface">
           <table className="w-full text-sm">
             <thead className="bg-stick-cream/60 text-left text-xs uppercase tracking-wider text-stick-driftwood">
               <tr>
