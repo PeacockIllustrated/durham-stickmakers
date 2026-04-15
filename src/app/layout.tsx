@@ -25,6 +25,18 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_GB',
     siteName: 'Durham Stick Makers',
+    images: [
+      {
+        url: '/images/gallery/collection-panoramic-wide.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'A display of handmade walking sticks by Durham Stick Makers',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/gallery/collection-panoramic-wide.jpg'],
   },
   robots: { index: true, follow: true },
 };
