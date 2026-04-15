@@ -3,13 +3,15 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { ImageUploader, type UploaderImage } from './ImageUploader';
+import { BlockEditor } from './BlockEditor';
+import { serialiseContent, type Block } from '@/lib/blocks';
 import type { BlogStatus } from '@/types/stick';
 
 export interface BlogFormInitial {
   id?: string;
   title: string;
   excerpt: string;
-  content: string;
+  blocks: Block[];
   author: string;
   category: string;
   status: BlogStatus;
@@ -22,7 +24,7 @@ export interface BlogFormInitial {
 export const DEFAULT_BLOG_FORM: BlogFormInitial = {
   title: '',
   excerpt: '',
-  content: '',
+  blocks: [],
   author: '',
   category: '',
   status: 'draft',
@@ -64,7 +66,7 @@ export function BlogForm({ initial, mode, knownCategories = [] }: BlogFormProps)
     const payload = {
       title: form.title.trim(),
       excerpt: form.excerpt.trim() || null,
-      content: form.content || null,
+      content: form.blocks.length > 0 ? serialiseContent(form.blocks) : null,
       author: form.author.trim() || null,
       category: form.category.trim() || null,
       status: targetStatus,
@@ -145,15 +147,18 @@ export function BlogForm({ initial, mode, knownCategories = [] }: BlogFormProps)
                 onChange={(e) => update('excerpt', e.target.value)}
               />
             </Field>
-            <Field label="Content" htmlFor="content" help="Separate paragraphs with a blank line.">
-              <textarea
-                id="content"
-                className="input min-h-[16rem] font-body"
-                rows={14}
-                value={form.content}
-                onChange={(e) => update('content', e.target.value)}
-              />
-            </Field>
+          </Section>
+
+          <Section title="Content">
+            <p className="text-small text-stick-driftwood -mt-2">
+              Build your post from blocks. Each can be a paragraph, heading, quote, image, list,
+              or divider — add as many as you like and reorder with the arrows.
+            </p>
+            <BlockEditor
+              value={form.blocks}
+              onChange={(blocks) => update('blocks', blocks)}
+              scopeId={form.id ?? 'new'}
+            />
           </Section>
 
           <Section title="Featured image">

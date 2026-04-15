@@ -6,7 +6,8 @@ import { createSupabaseServerClient } from '@/lib/supabase/server';
 import { BlogCard } from '@/components/BlogCard';
 import { ABOUT_TEASER_IMAGE } from '@/lib/site-images';
 import { stickImageUrl } from '@/lib/utils';
-import { toParagraphs } from '@/lib/content';
+import { parseContent } from '@/lib/blocks';
+import { BlockRenderer } from '@/components/BlockRenderer';
 import type { StickBlogPost } from '@/types/stick';
 
 interface PageProps {
@@ -97,7 +98,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound();
 
   const related = await fetchRelated(post.category, post.id);
-  const paragraphs = toParagraphs(post.content);
+  const { blocks } = parseContent(post.content);
   const imgUrl = post.featured_image_path ? stickImageUrl(post.featured_image_path) : null;
   const publishedDate = post.published_at ?? post.created_at;
 
@@ -153,14 +154,8 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           )}
 
-          <div className="mt-10 max-w-prose mx-auto space-y-5 text-stick-shale text-[1.05rem] leading-relaxed">
-            {paragraphs.length === 0 ? (
-              <p className="text-stick-driftwood italic">No content yet.</p>
-            ) : (
-              paragraphs.map((p, i) => (
-                <p key={i} className="whitespace-pre-line">{p}</p>
-              ))
-            )}
+          <div className="mt-10 max-w-prose mx-auto">
+            <BlockRenderer blocks={blocks} />
           </div>
         </div>
       </article>

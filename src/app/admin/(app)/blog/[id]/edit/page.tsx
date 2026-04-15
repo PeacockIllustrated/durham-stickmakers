@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
 import { BlogForm, type BlogFormInitial } from '@/components/BlogForm';
+import { parseContent } from '@/lib/blocks';
 import type { StickBlogPost } from '@/types/stick';
 
 export const metadata = { title: 'Edit post' };
@@ -39,7 +40,7 @@ export default async function EditBlogPostPage({ params }: { params: { id: strin
     id: p.id,
     title: p.title,
     excerpt: p.excerpt ?? '',
-    content: p.content ?? '',
+    blocks: parseContent(p.content).blocks,
     author: p.author ?? '',
     category: p.category ?? '',
     status: p.status,
