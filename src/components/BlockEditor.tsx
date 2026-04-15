@@ -8,6 +8,7 @@ import {
   emptyBlock,
   type Block,
   type BlockType,
+  type CTABlock,
   type ImageBlock,
   type ListBlock,
   type QuoteBlock,
@@ -143,6 +144,7 @@ const BLOCK_HINT: Record<BlockType, string> = {
   image: 'An image with a caption',
   list: 'A bulleted or numbered list',
   divider: 'A visual break',
+  cta: 'A button card linking somewhere',
 };
 
 // ---- Per-block-type field editors ------------------------------------------
@@ -195,7 +197,77 @@ function BlockFields({
           A quiet visual break between sections.
         </p>
       );
+
+    case 'cta':
+      return <CTAFields block={block} onChange={onChange} />;
   }
+}
+
+function CTAFields({
+  block,
+  onChange,
+}: {
+  block: CTABlock;
+  onChange: (next: CTABlock) => void;
+}) {
+  return (
+    <div className="space-y-3">
+      <div>
+        <label className="input-label">Heading</label>
+        <input
+          value={block.heading}
+          onChange={(e) => onChange({ ...block, heading: e.target.value })}
+          placeholder="e.g. Book your next workshop"
+          className="input font-heading text-h4"
+        />
+      </div>
+      <div>
+        <label className="input-label">Body (optional)</label>
+        <textarea
+          value={block.body ?? ''}
+          onChange={(e) => onChange({ ...block, body: e.target.value })}
+          placeholder="One line of supporting text"
+          rows={2}
+          className="input font-body"
+        />
+      </div>
+      <div className="grid gap-3 sm:grid-cols-[2fr_1fr]">
+        <div>
+          <label className="input-label">Button label</label>
+          <input
+            value={block.label}
+            onChange={(e) => onChange({ ...block, label: e.target.value })}
+            placeholder="e.g. See the shop"
+            className="input"
+          />
+        </div>
+        <div>
+          <label className="input-label">Style</label>
+          <select
+            value={block.variant ?? 'walnut'}
+            onChange={(e) => onChange({ ...block, variant: e.target.value as CTABlock['variant'] })}
+            className="input"
+          >
+            <option value="walnut">Dark (walnut)</option>
+            <option value="brass">Warm (brass)</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label className="input-label">Link</label>
+        <input
+          value={block.href}
+          onChange={(e) => onChange({ ...block, href: e.target.value })}
+          placeholder="/workshops — internal path, or https://… for an external site"
+          className="input font-mono text-sm"
+        />
+        <p className="mt-1 text-xs text-stick-driftwood">
+          Start with <code>/</code> for pages on this site (e.g. <code>/workshops</code>).
+          External URLs open in a new tab automatically.
+        </p>
+      </div>
+    </div>
+  );
 }
 
 function QuoteFields({

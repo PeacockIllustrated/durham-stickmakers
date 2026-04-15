@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Block } from '@/lib/blocks';
-import { stickImageUrl } from '@/lib/utils';
+import { stickImageUrl, cn } from '@/lib/utils';
 
 /**
  * Server component that renders a list of blocks with Tailwind styling
@@ -103,5 +104,67 @@ function BlockView({ block }: { block: Block }) {
       return (
         <hr className="my-10 border-0 flex items-center justify-center before:content-['◆'] before:text-stick-brass before:text-sm before:tracking-[1em]" />
       );
+
+    case 'cta': {
+      if (!block.href || !block.label) return null;
+      const isExternal = /^https?:\/\//i.test(block.href);
+      const isBrass = block.variant === 'brass';
+
+      const Shell = ({ children, className }: { children: React.ReactNode; className?: string }) =>
+        isExternal ? (
+          <a
+            href={block.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={className}
+          >
+            {children}
+          </a>
+        ) : (
+          <Link href={block.href} className={className}>{children}</Link>
+        );
+
+      return (
+        <div className="my-10 not-prose">
+          <Shell
+            className={cn(
+              'group block no-underline rounded-card px-6 py-8 md:px-10 md:py-10 transition-colors',
+              isBrass
+                ? 'bg-stick-brass/15 border border-stick-brass/40 text-stick-walnut hover:bg-stick-brass/25'
+                : 'bg-stick-walnut text-stick-linen hover:bg-stick-walnut/95'
+            )}
+          >
+            <div className="flex flex-wrap items-center justify-between gap-5">
+              <div className="min-w-0 flex-1 space-y-2">
+                <p
+                  className={cn(
+                    'font-heading text-h2 leading-tight',
+                    isBrass ? 'text-stick-walnut' : 'text-stick-linen'
+                  )}
+                >
+                  {block.heading}
+                </p>
+                {block.body && (
+                  <p className={cn('max-w-prose', isBrass ? 'text-stick-shale' : 'text-stick-linen/80')}>
+                    {block.body}
+                  </p>
+                )}
+              </div>
+              <span
+                className={cn(
+                  'inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-medium tracking-wide shrink-0 transition-colors',
+                  isBrass
+                    ? 'bg-stick-walnut text-stick-linen group-hover:bg-stick-walnut/90'
+                    : 'bg-stick-brass text-stick-walnut group-hover:bg-stick-linen'
+                )}
+              >
+                {block.label}
+                <span aria-hidden="true">→</span>
+              </span>
+            </div>
+          </Shell>
+        </div>
+      );
+    }
   }
 }

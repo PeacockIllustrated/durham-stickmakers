@@ -16,7 +16,8 @@ export type BlockType =
   | 'quote'
   | 'image'
   | 'list'
-  | 'divider';
+  | 'divider'
+  | 'cta';
 
 export interface ParagraphBlock {
   type: 'paragraph';
@@ -56,6 +57,16 @@ export interface DividerBlock {
   type: 'divider';
 }
 
+export interface CTABlock {
+  type: 'cta';
+  heading: string;
+  body?: string;
+  label: string;
+  href: string;
+  /** 'walnut' = dark inviting card (default). 'brass' = warm accent card. */
+  variant?: 'walnut' | 'brass';
+}
+
 export type Block =
   | ParagraphBlock
   | HeadingBlock
@@ -63,7 +74,8 @@ export type Block =
   | QuoteBlock
   | ImageBlock
   | ListBlock
-  | DividerBlock;
+  | DividerBlock
+  | CTABlock;
 
 export interface BlockDocument {
   version: 1;
@@ -78,6 +90,7 @@ export const BLOCK_LABELS: Record<BlockType, string> = {
   image: 'Image',
   list: 'List',
   divider: 'Divider',
+  cta: 'Call to action',
 };
 
 export const BLOCK_TYPES: BlockType[] = [
@@ -88,6 +101,7 @@ export const BLOCK_TYPES: BlockType[] = [
   'image',
   'list',
   'divider',
+  'cta',
 ];
 
 /** Build an empty block of the given type with sensible defaults. */
@@ -100,6 +114,7 @@ export function emptyBlock(type: BlockType): Block {
     case 'image': return { type: 'image', storage_path: '', alt: '', caption: '' };
     case 'list': return { type: 'list', items: [''], ordered: false };
     case 'divider': return { type: 'divider' };
+    case 'cta': return { type: 'cta', heading: '', body: '', label: '', href: '', variant: 'walnut' };
   }
 }
 
@@ -160,6 +175,8 @@ export function blocksToPlainText(blocks: Block[]): string {
           return b.caption ?? '';
         case 'divider':
           return '';
+        case 'cta':
+          return [b.heading, b.body].filter(Boolean).join(' — ');
       }
     })
     .filter(Boolean)
