@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-stick-linen text-stick-shale font-body text-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-stick-walnut;
+  }
+
+  a {
+    @apply text-stick-walnut underline-offset-4 hover:text-stick-brass transition-colors;
+  }
+
+  ::selection {
+    background-color: #C4A265;
+    color: #2C2417;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-stick-walnut px-5 py-3 font-body text-sm font-medium tracking-wide text-stick-linen no-underline transition-colors hover:bg-stick-brass hover:text-stick-walnut focus:outline-none focus:ring-2 focus:ring-stick-brass focus:ring-offset-2 focus:ring-offset-stick-linen disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-stick-walnut bg-transparent px-5 py-3 font-body text-sm font-medium tracking-wide text-stick-walnut no-underline transition-colors hover:bg-stick-walnut hover:text-stick-linen focus:outline-none focus:ring-2 focus:ring-stick-brass disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 font-body text-sm font-medium text-stick-walnut no-underline transition-colors hover:bg-stick-stone;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full bg-stick-cream px-3 py-1 text-xs font-medium uppercase tracking-wider text-stick-driftwood;
+  }
+
+  .pill-fell {
+    @apply inline-flex items-center rounded-full bg-stick-fell/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-stick-fell;
+  }
+
+  .pill-brass {
+    @apply inline-flex items-center rounded-full bg-stick-brass/15 px-3 py-1 text-xs font-medium uppercase tracking-wider text-stick-walnut;
+  }
+
+  .container-wide {
+    @apply mx-auto w-full max-w-content px-6 lg:px-8;
+  }
+
+  .container-prose {
+    @apply mx-auto w-full max-w-prose px-6;
+  }
+
+  .section {
+    @apply py-section-sm md:py-section;
+  }
+
+  .label-caps {
+    @apply text-xs font-medium uppercase tracking-[0.15em] text-stick-driftwood;
+  }
+
+  .input {
+    @apply w-full rounded-md border border-stick-stone bg-white px-3 py-2 font-body text-sm text-stick-walnut placeholder:text-stick-driftwood focus:border-stick-brass focus:outline-none focus:ring-1 focus:ring-stick-brass;
+  }
+
+  .input-label {
+    @apply mb-1.5 block font-body text-sm font-medium text-stick-walnut;
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip -p reference/durham-stickmakers-rebuild-audit_1.docx word/document.xml)",
+      "Bash(python -c \"import sys, re; t = sys.stdin.read\\(\\); t = re.sub\\(r'<w:p[^>]*>', '\\\\n', t\\); t = re.sub\\(r'<[^>]+>', '', t\\); print\\(t\\)\")",
+      "Bash(npm install *)",
+      "Bash(rm -f src/app/admin/layout.tsx)",
+      "Bash(mkdir -p \"src/app/admin/\\(app\\)\")",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)"
+    ]
+  }
+}
