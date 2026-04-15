@@ -16,7 +16,8 @@
       "Bash(cp \"stick-images/gallery/01-collection-panoramic-wide.jpg\" \"public/images/gallery/collection-panoramic-wide.jpg\")",
       "Bash(awk -F= '/^[A-Z]/ && $2 != \"\" && $2 !~ /^\\(sk_test_xxx|pk_test_xxx|whsec_xxx|your-|https:\\\\/\\\\/your-|http:\\\\/\\\\/localhost\\)/ { print $1 \": SET\" } /^[A-Z]/ && \\($2 == \"\" || $2 ~ /^\\(sk_test_xxx|pk_test_xxx|whsec_xxx|your-|https:\\\\/\\\\/your-|http:\\\\/\\\\/localhost\\)/\\) { print $1 \": missing/placeholder\" }' .env.local)",
       "Bash(npm run *)",
-      "Bash(grep -E \"Error|Failed|error|warn|\\\\\\\\[\\\\\\\\.\\\\\\\\]\")"
+      "Bash(grep -E \"Error|Failed|error|warn|\\\\\\\\[\\\\\\\\.\\\\\\\\]\")",
+      "Bash(npm ls *)"
     ]
   }
 }
