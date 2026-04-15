@@ -1,9 +1,16 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
 import { getSiteConfig } from '@/lib/site-config';
 import { ProductCard } from '@/components/ProductCard';
 import { formatDate, formatPence, formatTime } from '@/lib/utils';
+import {
+  HERO_IMAGE,
+  ABOUT_TEASER_IMAGE,
+  SERVICE_CARDS,
+  HOMEPAGE_SHOWCASE,
+} from '@/lib/site-images';
 import type { StickProduct, StickWorkshop } from '@/types/stick';
 
 export const metadata: Metadata = {
@@ -82,30 +89,80 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="md:col-span-5">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-card border border-stick-linen/10 bg-stick-walnut/60">
-              <div className="absolute inset-0 flex items-center justify-center p-6 text-center text-stick-linen/50 text-sm">
-                Workshop photography placeholder<br />
-                <span className="text-xs text-stick-linen/40 mt-2 block">
-                  Replace with a hand-shaping-horn image
-                </span>
-              </div>
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-card border border-stick-linen/10 shadow-2xl">
+              <Image
+                src={HERO_IMAGE.src}
+                alt={HERO_IMAGE.alt}
+                fill
+                priority
+                sizes="(min-width: 768px) 40vw, 90vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured sticks */}
+      {/* Service cards — what we do */}
       <section className="section">
+        <div className="container-wide">
+          <div className="max-w-2xl mb-10 md:mb-12">
+            <span className="label-caps">What we do</span>
+            <h2 className="mt-2 font-heading text-h1">Three things, well</h2>
+            <p className="mt-3 text-stick-shale">
+              Make, mend, and teach. Each one feeding the others — and all of it in the service of
+              keeping a heritage craft alive.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {SERVICE_CARDS.map((card) => (
+              <Link
+                key={card.title}
+                href={card.href}
+                className="group block no-underline text-stick-walnut"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-stick-stone">
+                  <Image
+                    src={card.image.src}
+                    alt={card.image.alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="mt-5 space-y-2">
+                  <h3 className="font-heading text-h3">{card.title}</h3>
+                  <p className="text-small text-stick-shale leading-relaxed">
+                    {card.description}
+                  </p>
+                  <span className="inline-block text-small font-medium text-stick-brass group-hover:text-stick-walnut transition-colors">
+                    {card.cta} →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured sticks — or a preview gallery if no products yet */}
+      <section className="section pt-0">
         <div className="container-wide">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
             <div>
               <span className="label-caps">From the workshop</span>
-              <h2 className="mt-2 font-heading text-h1">Featured sticks</h2>
+              <h2 className="mt-2 font-heading text-h1">
+                {featured.length > 0 ? 'Featured sticks' : 'A glimpse of the work'}
+              </h2>
               <p className="mt-2 max-w-prose text-stick-shale">
-                Each stick is one of a kind — dressed by hand by a Durham Stick Makers member.
+                {featured.length > 0
+                  ? 'Each stick is one of a kind — dressed by hand by a Durham Stick Makers member.'
+                  : 'A preview of the sticks our members dress and display. The shop opens for business soon.'}
               </p>
             </div>
-            <Link href="/shop" className="btn-ghost">Browse all →</Link>
+            <Link href={featured.length > 0 ? '/shop' : '/gallery'} className="btn-ghost">
+              {featured.length > 0 ? 'Browse all →' : 'See full gallery →'}
+            </Link>
           </div>
 
           {featured.length > 0 ? (
@@ -113,11 +170,26 @@ export default async function HomePage() {
               {featured.map((p) => <ProductCard key={p.id} product={p} />)}
             </div>
           ) : (
-            <div className="rounded-card border border-dashed border-stick-stone bg-stick-stone/40 p-10 text-center text-stick-driftwood">
-              <p className="font-heading text-h3 text-stick-walnut">Shop opening soon</p>
-              <p className="mt-2 text-small">
-                Featured sticks will appear here once the first listings are published.
-              </p>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {HOMEPAGE_SHOWCASE.map((img) => (
+                <Link
+                  key={img.src}
+                  href="/gallery"
+                  className="group relative block aspect-[4/5] overflow-hidden rounded-card bg-stick-stone no-underline"
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-stick-walnut/70 via-stick-walnut/10 to-transparent" />
+                  <span className="absolute bottom-3 left-3 right-3 text-small font-medium text-stick-linen">
+                    {img.caption}
+                  </span>
+                </Link>
+              ))}
             </div>
           )}
         </div>
@@ -209,24 +281,33 @@ export default async function HomePage() {
 
       {/* About teaser */}
       <section className="section pt-0">
-        <div className="container-wide grid gap-8 md:grid-cols-2 items-start">
+        <div className="container-wide grid gap-10 md:grid-cols-2 items-center">
+          <div className="relative aspect-[5/4] w-full overflow-hidden rounded-card bg-stick-stone">
+            <Image
+              src={ABOUT_TEASER_IMAGE.src}
+              alt={ABOUT_TEASER_IMAGE.alt}
+              fill
+              sizes="(min-width: 768px) 45vw, 90vw"
+              className="object-cover"
+            />
+          </div>
           <div>
             <span className="label-caps">Who we are</span>
             <h2 className="mt-2 font-heading text-h1">A workshop, not just a shop</h2>
-          </div>
-          <div className="space-y-4 text-stick-shale">
-            <p>
-              Durham Stick Makers is a small charity of heritage craftsmen based in County Durham.
-              We make and sell handmade walking sticks — shepherds crooks, thumbsticks, market
-              sticks and more — shaped from hazel, holly, ram horn and antler using techniques
-              passed down through generations.
-            </p>
-            <p>
-              Every penny raised goes back into preserving the craft: teaching workshops,
-              providing sticks free of charge to those who need them, and keeping a bench,
-              a vice and a kettle warm in Fencehouses.
-            </p>
-            <Link href="/about" className="btn-ghost -ml-4 mt-2">Learn more about us →</Link>
+            <div className="mt-4 space-y-4 text-stick-shale">
+              <p>
+                Durham Stick Makers is a small charity of heritage craftsmen based in County Durham.
+                We make and sell handmade walking sticks — shepherds crooks, thumbsticks, market
+                sticks and more — shaped from hazel, holly, ram horn and antler using techniques
+                passed down through generations.
+              </p>
+              <p>
+                Every penny raised goes back into preserving the craft: teaching workshops,
+                providing sticks free of charge to those who need them, and keeping a bench,
+                a vice and a kettle warm in Fencehouses.
+              </p>
+            </div>
+            <Link href="/about" className="btn-outline mt-6 inline-flex">Learn more about us</Link>
           </div>
         </div>
       </section>

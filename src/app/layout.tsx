@@ -2,8 +2,19 @@ import type { Metadata } from 'next';
 import { dmSerif, inter } from '@/lib/fonts';
 import './globals.css';
 
+function resolveSiteUrl(): URL {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) return new URL('http://localhost:3000');
+  const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  try {
+    return new URL(withProtocol);
+  } catch {
+    return new URL('http://localhost:3000');
+  }
+}
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+  metadataBase: resolveSiteUrl(),
   title: {
     default: 'Durham Stick Makers — Heritage walking sticks, handmade in County Durham',
     template: '%s | Durham Stick Makers',

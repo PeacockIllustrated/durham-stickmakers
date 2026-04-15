@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const supabaseHost = (() => {
+  const raw = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  if (!raw) return undefined;
+  const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
   try {
-    return process.env.NEXT_PUBLIC_SUPABASE_URL
-      ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname
-      : undefined;
+    return new URL(withProtocol).hostname;
   } catch {
     return undefined;
   }

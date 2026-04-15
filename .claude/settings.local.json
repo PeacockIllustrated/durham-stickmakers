@@ -7,7 +7,13 @@
       "Bash(rm -f src/app/admin/layout.tsx)",
       "Bash(mkdir -p \"src/app/admin/\\(app\\)\")",
       "Bash(npx tsc *)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(NEXT_PUBLIC_SITE_URL=\"durham-stickmakers.vercel.app\" npx next build)",
+      "Bash(mkdir -p public/images/homepage public/images/gallery public/images/showcase)",
+      "Bash(cp \"stick-images/homepage/01-service-card--bespoke-walking-sticks.jpg\" \"public/images/homepage/bespoke-walking-sticks.jpg\")",
+      "Bash(cp \"stick-images/homepage/02-service-card--repairs-and-restorations.jpg\" \"public/images/homepage/repairs-and-restorations.jpg\")",
+      "Bash(cp \"stick-images/homepage/03-service-card--workshops-shows-demos.jpg\" \"public/images/homepage/workshops-shows-demos.jpg\")",
+      "Bash(cp \"stick-images/gallery/01-collection-panoramic-wide.jpg\" \"public/images/gallery/collection-panoramic-wide.jpg\")"
     ]
   }
 }
