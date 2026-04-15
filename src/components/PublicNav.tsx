@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: '/gallery', label: 'Gallery' },
   { href: '/shop', label: 'Shop' },
   { href: '/workshops', label: 'Workshops' },
+  { href: '/blog', label: 'Journal' },
   { href: '/support-us', label: 'Support Us' },
   { href: '/contact', label: 'Contact' },
 ];
