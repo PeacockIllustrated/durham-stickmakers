@@ -60,8 +60,8 @@ export function PublicFooter({ config }: { config: SiteConfig }) {
             <li><Link href="/shop" className="text-stick-linen/80 no-underline hover:text-stick-brass">Shop</Link></li>
             <li><Link href="/workshops" className="text-stick-linen/80 no-underline hover:text-stick-brass">Workshops</Link></li>
             <li><Link href="/the-craft" className="text-stick-linen/80 no-underline hover:text-stick-brass">The Craft</Link></li>
-            <li><Link href="/support-us#donate" className="text-stick-linen/80 no-underline hover:text-stick-brass">Donate</Link></li>
-            <li><Link href="/contact" className="text-stick-linen/80 no-underline hover:text-stick-brass">Contact</Link></li>
+            <li><Link href="/gallery" className="text-stick-linen/80 no-underline hover:text-stick-brass">Gallery</Link></li>
+            <li><Link href="/contact" className="text-stick-linen/80 no-underline hover:text-stick-brass">Get in touch</Link></li>
           </ul>
           <div className="mt-5 flex items-center gap-3 text-stick-linen/70">
             {config.social_links.instagram && (

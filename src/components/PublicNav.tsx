@@ -57,9 +57,6 @@ export function PublicNav() {
               {link.label}
             </Link>
           ))}
-          <Link href="/support-us#donate" className="btn-primary ml-3 py-2">
-            Donate
-          </Link>
         </nav>
 
         <button
@@ -101,9 +98,6 @@ export function PublicNav() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/support-us#donate" className="btn-primary mt-4 w-full">
-              Donate
-            </Link>
           </nav>
         </div>
       )}

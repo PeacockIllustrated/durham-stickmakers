@@ -249,29 +249,30 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Mission / donation CTA */}
+      {/* Get involved — soft, non-transactional */}
       <section className="section">
         <div className="container-wide">
           <div className="rounded-card bg-stick-walnut px-6 py-12 md:px-16 md:py-16 text-stick-linen">
             <div className="grid gap-10 md:grid-cols-5 items-center">
               <div className="md:col-span-3">
-                <span className="label-caps text-stick-brass">Support the craft</span>
+                <span className="label-caps text-stick-brass">Get involved</span>
                 <h2 className="mt-3 font-heading text-h1 text-stick-linen">
-                  Keep a heritage craft alive
+                  Come and find us at the bench
                 </h2>
                 <p className="mt-4 max-w-prose text-stick-linen/80">
-                  {config.donation_cta}
+                  Drop in to a Monday or Tuesday evening, commission a stick, book a workshop,
+                  or just say hello. We love hearing from people who care about the craft.
                 </p>
               </div>
               <div className="md:col-span-2 md:text-right">
                 <Link
-                  href="/support-us#donate"
+                  href="/contact"
                   className="btn-primary bg-stick-brass text-stick-walnut hover:bg-stick-linen"
                 >
-                  Donate
+                  Get in touch
                 </Link>
                 <p className="mt-3 text-small text-stick-linen/60">
-                  Registered Charity {config.charity_number} · Gift Aid eligible
+                  Registered Charity {config.charity_number}
                 </p>
               </div>
             </div>
