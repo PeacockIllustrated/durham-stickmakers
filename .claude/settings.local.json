@@ -18,7 +18,9 @@
       "Bash(npm run *)",
       "Bash(grep -E \"Error|Failed|error|warn|\\\\\\\\[\\\\\\\\.\\\\\\\\]\")",
       "Bash(npm ls *)",
-      "Bash(xargs sed *)"
+      "Bash(xargs sed *)",
+      "Bash(npx playwright *)",
+      "Bash(node docs/generate-pdf.mjs)"
     ]
   }
 }

@@ -41,9 +41,20 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN?.trim();
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB" className={`${dmSerif.variable} ${inter.variable}`}>
+      <head>
+        {plausibleDomain && (
+          <script
+            defer
+            data-domain={plausibleDomain}
+            src="https://plausible.io/js/script.js"
+          />
+        )}
+      </head>
       <body>{children}</body>
     </html>
   );
