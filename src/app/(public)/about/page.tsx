@@ -247,6 +247,38 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Support link */}
+      <section className="section pt-0">
+        <div className="container-wide">
+          <div className="grid gap-4 md:grid-cols-2">
+            <Link
+              href="/support-us"
+              className="group block rounded-card border border-stick-stone bg-stick-surface p-8 no-underline hover:border-stick-brass transition-colors"
+            >
+              <span className="label-caps">Want to help?</span>
+              <p className="mt-2 font-heading text-h2 text-stick-walnut">
+                Ways to support the craft →
+              </p>
+              <p className="mt-2 text-small text-stick-shale">
+                Buy a stick, book a workshop, commission a piece, or just come and say hello.
+              </p>
+            </Link>
+            <Link
+              href="/contact"
+              className="group block rounded-card border border-stick-stone bg-stick-surface p-8 no-underline hover:border-stick-brass transition-colors"
+            >
+              <span className="label-caps">Get in touch</span>
+              <p className="mt-2 font-heading text-h2 text-stick-walnut">
+                Contact us →
+              </p>
+              <p className="mt-2 text-small text-stick-shale">
+                Drop us a line about a commission, a repair, a workshop, or anything else.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
