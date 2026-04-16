@@ -64,7 +64,10 @@
 
     /* ---- Cover ---- */
     .cover {
-      background: linear-gradient(170deg, var(--walnut) 0%, #3F4A56 100%);
+      background:
+        radial-gradient(ellipse 80% 60% at 75% 85%, rgba(196,162,101,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 20% 15%, rgba(250,250,248,0.04) 0%, transparent 60%),
+        linear-gradient(170deg, #232B33 0%, var(--walnut) 35%, #3F4A56 100%);
       color: var(--linen);
       display: flex;
       flex-direction: column;
@@ -72,29 +75,46 @@
       padding: 30mm 28mm;
     }
 
+    .cover .org-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 28px;
+    }
+
     .cover h1 {
-      font-size: 38pt;
-      line-height: 1.08;
+      font-size: 44pt;
+      line-height: 1.06;
       color: var(--linen);
-      max-width: 400px;
+      max-width: 420px;
+    }
+
+    .cover .brass-rule {
+      width: 56px;
+      height: 2px;
+      background: var(--brass);
+      margin: 24px 0;
+      border: none;
     }
 
     .cover .subtitle {
-      font-size: 12pt;
-      color: rgba(250,250,248,0.7);
-      margin-top: 16px;
+      font-size: 11.5pt;
+      color: rgba(250,250,248,0.65);
       max-width: 380px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .cover .badge {
       display: inline-block;
-      margin-bottom: 20px;
-      padding: 6px 16px;
-      border: 1px solid rgba(196,162,101,0.5);
+      margin-top: 32px;
+      padding: 7px 18px;
+      border: 1px solid rgba(196,162,101,0.4);
       border-radius: 5px;
-      font-size: 7.5pt;
-      letter-spacing: 0.15em;
+      font-size: 7pt;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--brass);
     }
@@ -104,11 +124,37 @@
       bottom: 22mm;
       left: 28mm;
       right: 28mm;
-      font-size: 7.5pt;
-      color: rgba(250,250,248,0.35);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .cover .foot-left {
+      font-size: 7pt;
+      color: rgba(250,250,248,0.3);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       line-height: 1.7;
+    }
+
+    .cover .foot-right {
+      font-size: 7pt;
+      color: rgba(250,250,248,0.2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    .cover .ornament {
+      position: absolute;
+      bottom: 44mm;
+      right: 28mm;
+      font-size: 48pt;
+      color: rgba(196,162,101,0.07);
+      font-family: 'DM Serif Display', serif;
+      line-height: 1;
+      letter-spacing: 0.05em;
     }
 
     /* ---- Typography ---- */
@@ -246,16 +292,26 @@
 
   <!-- PAGE 1: Cover -->
   <div class="a4 cover">
-    <div class="badge">Owner Guide</div>
-    <h1>Your new website</h1>
+    <div class="org-name">Durham Stick Makers</div>
+    <h1>Your new<br>website</h1>
+    <div class="brass-rule"></div>
     <p class="subtitle">
-      A practical guide to managing the Durham Stick Makers website -
-      adding sticks, scheduling workshops, writing blog posts, and
-      keeping the site up to date.
+      A practical guide to managing the site -
+      adding sticks, scheduling workshops, writing posts, and
+      keeping everything up to date.
     </p>
+    <div class="badge">Owner Guide &middot; April 2026</div>
+    <div class="ornament">&#9674;&#9674;&#9674;</div>
     <div class="foot">
-      Durham Stick Makers &middot; Registered Charity 1212357<br>
-      Prepared by Onesign &amp; Digital &middot; April 2026
+      <div class="foot-left">
+        Registered Charity 1212357<br>
+        Fencehouses Community Centre<br>
+        County Durham
+      </div>
+      <div class="foot-right">
+        Prepared by<br>
+        Onesign &amp; Digital
+      </div>
     </div>
   </div>
 
