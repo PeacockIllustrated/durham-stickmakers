@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Durham Stick Makers - Website Owner Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --walnut: #2F3842;
+      --shale: #4A5563;
+      --linen: #FAFAF8;
+      --brass: #C4A265;
+      --stone: #E4E7EC;
+      --fell: #3D5E4A;
+      --driftwood: #7A8593;
+      --cream: #EEF0F3;
+      --surface: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.65;
+      color: var(--shale);
+      background: var(--linen);
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      color: var(--walnut);
+      font-weight: 400;
+    }
+
+    /* ---- Layout ---- */
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--surface);
+    }
+
+    .cover {
+      background: linear-gradient(to bottom, var(--walnut), #3F4A56);
+      color: var(--linen);
+      padding: 120px 60px 80px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cover h1 {
+      font-size: 42pt;
+      line-height: 1.1;
+      color: var(--linen);
+    }
+
+    .cover .subtitle {
+      font-size: 14pt;
+      color: rgba(250,250,248,0.75);
+      margin-top: 20px;
+      max-width: 480px;
+      line-height: 1.5;
+    }
+
+    .cover .badge {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 8px 20px;
+      border: 1px solid rgba(196,162,101,0.5);
+      border-radius: 6px;
+      font-size: 9pt;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--brass);
+    }
+
+    .cover .footer-line {
+      margin-top: auto;
+      padding-top: 60px;
+      font-size: 9pt;
+      color: rgba(250,250,248,0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    section.content {
+      padding: 60px;
+    }
+
+    section.content + section.content {
+      border-top: 1px solid var(--stone);
+    }
+
+    section.content h2 {
+      font-size: 24pt;
+      margin-bottom: 8px;
+    }
+
+    section.content h3 {
+      font-size: 15pt;
+      margin-top: 32px;
+      margin-bottom: 8px;
+    }
+
+    section.content h4 {
+      font-size: 12pt;
+      margin-top: 24px;
+      margin-bottom: 6px;
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--driftwood);
+      margin-bottom: 8px;
+    }
+
+    p { margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    .lead {
+      font-size: 12pt;
+      color: var(--walnut);
+      line-height: 1.6;
+    }
+
+    /* ---- Cards ---- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .card-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+
+    .card {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .card h4 {
+      margin-top: 0;
+      font-size: 12pt;
+    }
+
+    .card p {
+      font-size: 9.5pt;
+      color: var(--shale);
+    }
+
+    /* ---- Steps ---- */
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .steps li {
+      counter-increment: step;
+      padding-left: 44px;
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      background: rgba(196,162,101,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 13pt;
+      color: var(--walnut);
+    }
+
+    .steps li strong {
+      color: var(--walnut);
+      font-weight: 600;
+    }
+
+    /* ---- Callout ---- */
+    .callout {
+      background: var(--cream);
+      border-left: 3px solid var(--brass);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+      font-size: 10pt;
+    }
+
+    .callout strong { color: var(--walnut); }
+
+    /* ---- Tip box ---- */
+    .tip {
+      background: rgba(61,94,74,0.08);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 10pt;
+      color: var(--fell);
+    }
+
+    .tip strong { color: var(--fell); }
+
+    /* ---- Table ---- */
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 10pt;
+    }
+
+    .ref-table th {
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 8pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--driftwood);
+      padding: 8px 12px;
+      border-bottom: 2px solid var(--stone);
+    }
+
+    .ref-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--stone);
+      vertical-align: top;
+    }
+
+    .ref-table td:first-child {
+      font-weight: 500;
+      color: var(--walnut);
+      white-space: nowrap;
+    }
+
+    /* ---- Divider block ---- */
+    .divider {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--brass);
+      font-size: 10pt;
+      letter-spacing: 1em;
+    }
+
+    /* ---- Dark section ---- */
+    .dark-section {
+      background: var(--walnut);
+      color: rgba(250,250,248,0.85);
+      padding: 60px;
+    }
+
+    .dark-section h2,
+    .dark-section h3,
+    .dark-section h4 {
+      color: var(--linen);
+    }
+
+    .dark-section .section-label {
+      color: var(--brass);
+    }
+
+    .dark-section .callout {
+      background: rgba(250,250,248,0.08);
+      border-left-color: var(--brass);
+    }
+
+    .dark-section .callout strong { color: var(--linen); }
+
+    /* ---- Print ---- */
+    @media print {
+      body { background: white; font-size: 10pt; }
+      .page { max-width: none; }
+      .cover { min-height: auto; padding: 80px 50px 60px; page-break-after: always; }
+      section.content { padding: 40px 50px; }
+      .dark-section { padding: 40px 50px; }
+      section.content, .dark-section { page-break-inside: avoid; }
+      h2, h3 { page-break-after: avoid; }
+      .card-grid { page-break-inside: avoid; }
+      .steps { page-break-inside: avoid; }
+      .no-print { display: none; }
+    }
+
+    @page {
+      margin: 0;
+      size: A4;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Cover -->
+    <div class="cover">
+      <div class="badge">Owner Guide</div>
+      <h1 style="margin-top: 30px;">Your new<br>website</h1>
+      <p class="subtitle">
+        A practical guide to managing the Durham Stick Makers website -
+        adding sticks, scheduling workshops, writing blog posts, and
+        keeping the site up to date.
+      </p>
+      <p class="footer-line">
+        Durham Stick Makers &middot; Registered Charity 1212357<br>
+        Prepared by Onesign &amp; Digital &middot; April 2026
+      </p>
+    </div>
+
+    <!-- Welcome -->
+    <section class="content">
+      <p class="section-label">Welcome</p>
+      <h2>What this guide covers</h2>
+      <p class="lead">
+        This document walks you through everything you need to run the Durham Stick
+        Makers website day to day. It covers how visitors experience the site, how to
+        sign in to the admin area, and step-by-step instructions for every task you
+        will regularly need to do.
+      </p>
+      <p>
+        The site was built so that any member of the committee can manage it with
+        no technical knowledge. If you can fill in a form and drag a photograph,
+        you can run the site.
+      </p>
+
+      <div class="callout">
+        <strong>One rule of thumb:</strong> nothing goes live to the public until you
+        explicitly click Publish. You can create drafts, upload images, and experiment
+        freely. Delete or unpublish anything at any time.
+      </div>
+    </section>
+
+    <!-- What visitors see -->
+    <section class="content">
+      <p class="section-label">The public site</p>
+      <h2>What visitors see</h2>
+      <p>
+        The public website has eight main areas, all linked from the top navigation bar.
+        Every page pulls its content from the admin panel, so what you change behind the
+        scenes appears on the site immediately.
+      </p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h4>Homepage</h4>
+          <p>Hero banner, featured sticks, next workshop, and a warm invitation to get in touch.</p>
+        </div>
+        <div class="card">
+          <h4>The Craft</h4>
+          <p>An illustrated guide to stick types, materials, the making process, and stick care.</p>
+        </div>
+        <div class="card">
+          <h4>Gallery</h4>
+          <p>Filterable photographs with a full-screen lightbox. Click any image to view it large.</p>
+        </div>
+        <div class="card">
+          <h4>Shop</h4>
+          <p>Your product listings. Each stick has its own detail page with photos, materials, maker credit, and a buy button.</p>
+        </div>
+        <div class="card">
+          <h4>Workshops</h4>
+          <p>Regular session times and a calendar of bookable workshops with online booking forms.</p>
+        </div>
+        <div class="card">
+          <h4>Journal</h4>
+          <p>Blog posts - technique notes, member spotlights, show reports, and charity news.</p>
+        </div>
+        <div class="card">
+          <h4>About Us</h4>
+          <p>Your story, mission, member profiles (pulled automatically from the admin), and the Heritage Crafts Red List.</p>
+        </div>
+        <div class="card">
+          <h4>Contact</h4>
+          <p>A message form, your workshop address, opening hours, email, and social links.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signing in -->
+    <section class="content">
+      <p class="section-label">Getting started</p>
+      <h2>Signing in to admin</h2>
+      <p>
+        The admin area lives at <strong>/admin</strong> on your website. Go to
+        your site URL followed by <strong>/admin/login</strong> and sign in with the
+        email address and password that were set up for you.
+      </p>
+
+      <ol class="steps">
+        <li>Open your website in a browser and add <strong>/admin/login</strong> to the end of the URL.</li>
+        <li>Enter your <strong>email</strong> and <strong>password</strong>, then click <strong>Sign in</strong>.</li>
+        <li>You will land on the <strong>Dashboard</strong> - a quick overview showing published products, drafts, pending orders, and upcoming workshops.</li>
+      </ol>
+
+      <div class="tip">
+        <strong>Tip:</strong> Bookmark the admin login page so you can get back
+        to it quickly. If you forget your password, your developer can reset it
+        through the Supabase dashboard.
+      </div>
+
+      <h3>The admin sidebar</h3>
+      <p>
+        Once signed in, the left-hand sidebar is your map. Every section of the
+        site you can manage is listed there:
+      </p>
+
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>Section</th>
+            <th>What it does</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dashboard</td><td>Overview with stat cards and quick links</td></tr>
+          <tr><td>Products</td><td>Add, edit, publish, or archive stick listings and supplies</td></tr>
+          <tr><td>Workshops</td><td>Schedule sessions and view bookings</td></tr>
+          <tr><td>Orders</td><td>View orders placed through the shop</td></tr>
+          <tr><td>Donations</td><td>View donation records</td></tr>
+          <tr><td>Blog</td><td>Write and publish journal posts</td></tr>
+          <tr><td>Members</td><td>Add committee members with photos and bios</td></tr>
+          <tr><td>Messages</td><td>Read messages sent through the contact form</td></tr>
+          <tr><td>Settings</td><td>Edit site-wide information (address, hours, hero text, etc.)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Products -->
+    <section class="content">
+      <p class="section-label">The most important task</p>
+      <h2>Adding a stick to the shop</h2>
+      <p>
+        This is the job you will do most often. Each stick is a one-of-a-kind listing
+        with its own photos, description, price, and maker credit.
+      </p>
+
+      <ol class="steps">
+        <li>Go to <strong>Products</strong> in the sidebar, then click <strong>+ New listing</strong>.</li>
+        <li>Enter a <strong>title</strong> (e.g. "Ram horn shepherds crook on hazel").</li>
+        <li>Choose the <strong>product type</strong> (One of a kind, Supply, Gift voucher, or Workshop) and pick a <strong>category</strong> from the dropdown.</li>
+        <li>Set the <strong>price</strong> in pounds. It is stored in pence internally so pricing is always exact.</li>
+        <li>
+          <strong>Upload photos</strong> - drag images into the upload zone or click to select files.
+          Upload at least three: a full-length shot, a close-up of the handle, and the collar or ferrule.
+          The first image becomes the listing thumbnail. Drag to reorder.
+        </li>
+        <li>Write a short <strong>description</strong>. Plain text - a few sentences about the stick's character, materials, and finish.</li>
+        <li>Fill in the <strong>materials</strong> - handle, shank, and collar. The fields offer autocomplete from known materials.</li>
+        <li>Select a <strong>maker</strong> from the dropdown so the stick is credited on the site.</li>
+        <li>Tick <strong>Feature on homepage</strong> if you want this stick to appear in the featured row on the front page.</li>
+        <li>Click <strong>Save as draft</strong> to come back later, or <strong>Publish</strong> to put it live in the shop immediately.</li>
+      </ol>
+
+      <div class="callout">
+        <strong>When you publish,</strong> the site automatically creates the payment
+        entry in Stripe so the stick can be bought online. If you edit the price later,
+        a new payment entry is created. You do not need to touch Stripe directly.
+      </div>
+
+      <h3>Editing and archiving</h3>
+      <p>
+        Click any product in the list to edit it. You can change the status between
+        Draft, Published, and Sold at any time. To remove a product from the shop
+        permanently, click <strong>Archive</strong> at the bottom of the edit page.
+        Archived products are hidden from the shop but kept in the database for your records.
+      </p>
+    </section>
+
+    <!-- Workshops -->
+    <section class="content">
+      <p class="section-label">Events</p>
+      <h2>Scheduling a workshop</h2>
+      <p>
+        Beyond the regular Monday and Tuesday drop-in sessions (which are configured
+        in Settings), you can schedule one-off workshops, taster days, and courses.
+      </p>
+
+      <ol class="steps">
+        <li>Go to <strong>Workshops</strong> in the sidebar, then click <strong>+ New workshop</strong>.</li>
+        <li>Enter a <strong>title</strong>, <strong>date</strong>, <strong>start time</strong>, and <strong>end time</strong>.</li>
+        <li>Set the <strong>capacity</strong> (how many places) and the <strong>price</strong> (enter 0 for a free session).</li>
+        <li>Add a <strong>description</strong> of what attendees will learn or make.</li>
+        <li>Optionally upload a <strong>featured image</strong>.</li>
+        <li>Click <strong>Save workshop</strong>. It appears on the public Workshops page immediately.</li>
+      </ol>
+
+      <h3>Viewing bookings</h3>
+      <p>
+        When visitors book a place, their details appear at the bottom of the workshop
+        edit page: name, email, phone number, and how many places they booked. The
+        spots-remaining counter updates automatically.
+      </p>
+
+      <div class="tip">
+        <strong>Tip:</strong> If a workshop fills up, the status changes to "Fully booked"
+        automatically. You can override this in the Status dropdown if a place opens up.
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="content">
+      <p class="section-label">Content</p>
+      <h2>Writing a blog post</h2>
+      <p>
+        The journal supports a modular block-based editor. Instead of one big text box,
+        you build your post from blocks - each one can be a different type of content.
+      </p>
+
+      <h3>Block types</h3>
+      <div class="card-grid three">
+        <div class="card">
+          <h4>Paragraph</h4>
+          <p>Regular body text. Use one block per paragraph or group of lines.</p>
+        </div>
+        <div class="card">
+          <h4>Heading</h4>
+          <p>A large section heading to break up long posts.</p>
+        </div>
+        <div class="card">
+          <h4>Subheading</h4>
+          <p>A smaller heading beneath a main heading.</p>
+        </div>
+        <div class="card">
+          <h4>Quote</h4>
+          <p>A pulled quote with an optional attribution line.</p>
+        </div>
+        <div class="card">
+          <h4>Image</h4>
+          <p>Upload a photo inline with an optional caption and alt text.</p>
+        </div>
+        <div class="card">
+          <h4>List</h4>
+          <p>Bulleted or numbered list. Add items one at a time.</p>
+        </div>
+        <div class="card">
+          <h4>Divider</h4>
+          <p>A subtle visual break between sections.</p>
+        </div>
+        <div class="card">
+          <h4>Call to action</h4>
+          <p>A button card linking to another page - internal or external.</p>
+        </div>
+      </div>
+
+      <h3>How to write a post</h3>
+      <ol class="steps">
+        <li>Go to <strong>Blog</strong> in the sidebar, then click <strong>+ New post</strong>.</li>
+        <li>Enter a <strong>title</strong> and a short <strong>excerpt</strong> (one or two sentences shown on the listing page).</li>
+        <li>Build your content by clicking <strong>+ Add block</strong> and choosing a block type. Use the arrows to reorder blocks.</li>
+        <li>Add a <strong>featured image</strong> (shown at the top of the post and on the listing card).</li>
+        <li>Optionally set an <strong>author</strong> name and <strong>category</strong> (e.g. Technique, Workshop news, Member spotlight).</li>
+        <li>Click <strong>Save as draft</strong> to come back later, or <strong>Publish</strong> to make it live.</li>
+      </ol>
+
+      <div class="callout">
+        <strong>Old posts still work.</strong> If you wrote a post as plain text before
+        the block editor was added, it will still display correctly. Opening it in the
+        editor will show each paragraph as a paragraph block, ready for you to convert
+        into headings, images, or quotes.
+      </div>
+    </section>
+
+    <!-- Members -->
+    <section class="content">
+      <p class="section-label">People</p>
+      <h2>Managing members</h2>
+      <p>
+        Members appear in two places: the "Our people" grid on the About page, and the
+        "Made by" dropdown on product listings. Adding a member here automatically
+        populates both.
+      </p>
+
+      <ol class="steps">
+        <li>Go to <strong>Members</strong> in the sidebar, then click <strong>+ Add member</strong>.</li>
+        <li>Enter their <strong>name</strong> and a short <strong>bio</strong> (a sentence or two about what they make or how long they have been involved).</li>
+        <li>Upload a <strong>portrait photo</strong> - a candid at the bench works best.</li>
+        <li>Set the <strong>display order</strong> (lower numbers appear first on the About page).</li>
+        <li>Leave <strong>Active member</strong> ticked. Unticking it hides them from the About page and the product dropdown without deleting their record.</li>
+        <li>Click <strong>Save member</strong>.</li>
+      </ol>
+    </section>
+
+    <!-- Messages -->
+    <section class="content">
+      <p class="section-label">Communication</p>
+      <h2>Reading messages</h2>
+      <p>
+        When somebody fills in the contact form on the public site, their message
+        appears in <strong>Messages</strong> in the admin sidebar.
+      </p>
+      <p>
+        Unread messages have a <strong>brass dot</strong> beside them. Click a message
+        to expand it - it auto-marks as read. Click <strong>Reply by email</strong> to
+        open your mail client with the sender's address and subject already filled in.
+      </p>
+      <p>
+        You can mark a message as unread again if you want to come back to it later.
+      </p>
+    </section>
+
+    <!-- Settings -->
+    <section class="content">
+      <p class="section-label">Configuration</p>
+      <h2>Site settings</h2>
+      <p>
+        The Settings page lets you edit information that appears across the entire
+        site. Changes take effect immediately when you click <strong>Save settings</strong>.
+      </p>
+
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>Setting</th>
+            <th>Where it appears</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Charity name &amp; number</td><td>Footer on every page, About page</td></tr>
+          <tr><td>Contact email</td><td>Contact page, footer</td></tr>
+          <tr><td>Hero headline &amp; subtitle</td><td>Homepage banner</td></tr>
+          <tr><td>"Get involved" text</td><td>Homepage support block</td></tr>
+          <tr><td>Workshop address</td><td>Footer, Contact page, About page</td></tr>
+          <tr><td>Regular sessions</td><td>Homepage, Workshops page, Contact page, footer</td></tr>
+          <tr><td>Opening hours note</td><td>Alongside session times (e.g. "Drop-in welcome")</td></tr>
+          <tr><td>Instagram &amp; Facebook URLs</td><td>Footer social icons</td></tr>
+          <tr><td>Shipping rates</td><td>Checkout (standard, oversized, free threshold)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Photography tips -->
+    <section class="content">
+      <p class="section-label">Photography</p>
+      <h2>Tips for good photographs</h2>
+      <p>
+        All images on the site - product photos, workshop images, blog posts,
+        member portraits - are uploaded through the same drag-and-drop system.
+        The site handles resizing automatically, but better source photos make
+        a better-looking site.
+      </p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h4>Use natural light</h4>
+          <p>A window or outdoor shade beats a flash every time. Avoid harsh overhead lighting.</p>
+        </div>
+        <div class="card">
+          <h4>Shoot three angles</h4>
+          <p>For each stick: full length, handle close-up, and collar or ferrule detail.</p>
+        </div>
+        <div class="card">
+          <h4>Keep backgrounds clean</h4>
+          <p>A plain surface or a workshop bench. Avoid cluttered backgrounds.</p>
+        </div>
+        <div class="card">
+          <h4>Phone cameras are fine</h4>
+          <p>A modern phone camera is more than enough. Just wipe the lens first.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick reference -->
+    <div class="dark-section">
+      <p class="section-label">Quick reference</p>
+      <h2>At a glance</h2>
+
+      <div style="margin-top: 24px;">
+        <h4 style="margin-top: 0;">To add a stick to the shop</h4>
+        <p>Products > + New listing > fill in details > upload photos > Publish</p>
+
+        <h4>To schedule a workshop</h4>
+        <p>Workshops > + New workshop > set date, time, capacity, price > Save</p>
+
+        <h4>To write a blog post</h4>
+        <p>Blog > + New post > title, excerpt > add blocks > Publish</p>
+
+        <h4>To add a member</h4>
+        <p>Members > + Add member > name, bio, photo > Save</p>
+
+        <h4>To read a contact message</h4>
+        <p>Messages > click the message > Reply by email</p>
+
+        <h4>To change the opening hours</h4>
+        <p>Settings > Regular sessions > edit days and times > Save settings</p>
+
+        <h4>To update the homepage headline</h4>
+        <p>Settings > Hero headline > type new text > Save settings</p>
+      </div>
+
+      <div class="callout" style="margin-top: 40px;">
+        <strong>If something goes wrong:</strong> check the admin panel first - most
+        issues are a toggle or a status change away. For data questions, check the
+        Supabase dashboard. For anything else, contact your developer.
+      </div>
+
+      <p style="margin-top: 40px; font-size: 9pt; color: rgba(250,250,248,0.4); text-align: center; letter-spacing: 0.1em; text-transform: uppercase;">
+        Durham Stick Makers &middot; Fencehouses Community Centre &middot; County Durham<br>
+        Registered Charity 1212357
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
