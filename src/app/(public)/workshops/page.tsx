@@ -70,7 +70,7 @@ export default async function WorkshopsPage() {
             <div className="mt-8 rounded-card border border-dashed border-stick-stone bg-stick-cream/40 p-10 text-center text-stick-driftwood">
               <p className="font-heading text-h3 text-stick-walnut">No workshops on the calendar</p>
               <p className="mt-2 text-small">
-                None scheduled right now — drop in to a regular session, or
+                None scheduled right now - drop in to a regular session, or
                 <Link href="/contact" className="ml-1 text-stick-walnut hover:text-stick-brass">
                   get in touch
                 </Link>{' '}

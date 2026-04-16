@@ -206,7 +206,7 @@ export function ProductForm({ initial, categories, makers, materials, mode }: Pr
                   value={form.category_id ?? ''}
                   onChange={(e) => update('category_id', e.target.value || null)}
                 >
-                  <option value="">— Select —</option>
+                  <option value="">- Select -</option>
                   {categories.map((c) => (
                     <option key={c.id} value={c.id}>{c.name}</option>
                   ))}
@@ -285,7 +285,7 @@ export function ProductForm({ initial, categories, makers, materials, mode }: Pr
                   onChange={(e) => update('length_inches', e.target.value)}
                 />
               </Field>
-              <Field label="Weight / heft" htmlFor="weight_description" help="e.g. 'Light for a hazel — 320g'">
+              <Field label="Weight / heft" htmlFor="weight_description" help="e.g. 'Light for a hazel - 320g'">
                 <input
                   id="weight_description"
                   className="input"
@@ -338,14 +338,14 @@ export function ProductForm({ initial, categories, makers, materials, mode }: Pr
           </Section>
 
           <Section title="Attribution">
-            <Field label="Made by" htmlFor="maker_id" help="Optional — leave blank for supplies.">
+            <Field label="Made by" htmlFor="maker_id" help="Optional - leave blank for supplies.">
               <select
                 id="maker_id"
                 className="input"
                 value={form.maker_id ?? ''}
                 onChange={(e) => update('maker_id', e.target.value || null)}
               >
-                <option value="">— None —</option>
+                <option value="">- None -</option>
                 {makers.map((m) => (
                   <option key={m.id} value={m.id}>{m.name}</option>
                 ))}
@@ -372,7 +372,7 @@ export function ProductForm({ initial, categories, makers, materials, mode }: Pr
             <Section title="Stripe">
               <p className="text-xs text-stick-driftwood break-all">
                 Product: {form.stripe_product_id}<br />
-                Price: {form.stripe_price_id ?? '—'}
+                Price: {form.stripe_price_id ?? '-'}
               </p>
             </Section>
           )}

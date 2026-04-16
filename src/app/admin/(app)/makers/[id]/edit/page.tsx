@@ -34,7 +34,7 @@ export default async function EditMakerPage({ params }: { params: { id: string }
         </Link>
         <h1 className="mt-2 font-heading text-h1">{m.name}</h1>
         <p className="text-stick-driftwood text-small mt-1">
-          {m.is_active ? 'Active member' : 'Inactive — hidden from the About page and product dropdowns'}
+          {m.is_active ? 'Active member' : 'Inactive - hidden from the About page and product dropdowns'}
         </p>
       </div>
       <MakerForm mode="edit" initial={initial} />

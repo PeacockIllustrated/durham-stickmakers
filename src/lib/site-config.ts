@@ -36,7 +36,7 @@ export interface SiteConfig {
   hero_subtitle: string;
 }
 
-/** Hardcoded defaults — used when Supabase is unreachable or a key is missing. */
+/** Hardcoded defaults - used when Supabase is unreachable or a key is missing. */
 const DEFAULTS: SiteConfig = {
   charity_number: '1212357',
   charity_name: 'Durham Stick Makers',
@@ -69,7 +69,7 @@ const DEFAULTS: SiteConfig = {
     'Help us preserve an endangered heritage craft and provide walking sticks to those who need them most.',
   hero_headline: 'Shaped by hand. Rooted in tradition.',
   hero_subtitle:
-    'Preserving the endangered art of stick making — teaching, making, and giving sticks to those who need them most.',
+    'Preserving the endangered art of stick making - teaching, making, and giving sticks to those who need them most.',
 };
 
 /**

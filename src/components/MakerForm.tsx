@@ -131,7 +131,7 @@ export function MakerForm({ initial, mode }: MakerFormProps) {
 
           <Section title="Portrait photo">
             <p className="text-small text-stick-driftwood -mt-2">
-              A portrait or candid at the bench — shows on the About page and alongside
+              A portrait or candid at the bench - shows on the About page and alongside
               their sticks in the shop.
             </p>
             <ImageUploader

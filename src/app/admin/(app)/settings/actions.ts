@@ -57,7 +57,7 @@ export async function saveSettings(
       },
     });
 
-    // Opening hours — rebuild from repeating fields session_day_N / session_start_N / session_end_N
+    // Opening hours - rebuild from repeating fields session_day_N / session_start_N / session_end_N
     const sessions: SessionRow[] = [];
     for (let i = 0; i < 7; i++) {
       const day = scalar(`session_day_${i}`);
@@ -83,7 +83,7 @@ export async function saveSettings(
       },
     });
 
-    // Upsert — inserts rows that don't exist, updates ones that do.
+    // Upsert - inserts rows that don't exist, updates ones that do.
     const { error } = await supabase
       .from('stick_site_config')
       .upsert(updates, { onConflict: 'key' });

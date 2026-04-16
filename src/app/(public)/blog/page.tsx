@@ -37,7 +37,7 @@ async function fetchPosts(category: string | null) {
 
     const { data: posts } = await query;
 
-    // Distinct categories across all published posts — we show them as pills
+    // Distinct categories across all published posts - we show them as pills
     const { data: catRows } = await supabase
       .from('stick_blog_posts')
       .select('category')
@@ -112,7 +112,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
               <p className="mt-2 text-small">
                 {activeCategory
                   ? 'Try a different category, or check back soon.'
-                  : 'Our first journal posts are being written — check back soon.'}
+                  : 'Our first journal posts are being written - check back soon.'}
               </p>
               {activeCategory && (
                 <Link href="/blog" className="btn-outline mt-5">See all posts</Link>

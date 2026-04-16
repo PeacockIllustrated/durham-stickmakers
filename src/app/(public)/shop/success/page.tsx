@@ -26,7 +26,7 @@ export default async function CheckoutSuccessPage({ searchParams }: PageProps) {
       customerEmail = session.customer_details?.email ?? null;
       amountPaid = session.amount_total ?? null;
     } catch {
-      // Non-fatal — show generic success message
+      // Non-fatal - show generic success message
     }
   }
 

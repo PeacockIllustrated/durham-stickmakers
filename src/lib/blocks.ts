@@ -2,7 +2,7 @@
  * Content blocks for blog posts.
  *
  * Stored as a JSON string inside the existing stick_blog_posts.content TEXT
- * column — no schema change required. The wrapper shape `{ version, blocks }`
+ * column - no schema change required. The wrapper shape `{ version, blocks }`
  * lets us migrate the format later.
  *
  * Backwards compatibility: posts written before blocks existed are plain text.
@@ -138,7 +138,7 @@ export function parseContent(content: string | null | undefined): BlockDocument 
         return { version: 1, blocks: (parsed as unknown[]).filter(isBlock) };
       }
     } catch {
-      // Not JSON — fall through to plain-text handling.
+      // Not JSON - fall through to plain-text handling.
     }
   }
 
@@ -158,7 +158,7 @@ export function serialiseContent(blocks: Block[]): string {
   return JSON.stringify(doc);
 }
 
-/** Plain-text summary of a block list — used for auto-generating excerpts. */
+/** Plain-text summary of a block list - used for auto-generating excerpts. */
 export function blocksToPlainText(blocks: Block[]): string {
   return blocks
     .map((b) => {
@@ -176,7 +176,7 @@ export function blocksToPlainText(blocks: Block[]): string {
         case 'divider':
           return '';
         case 'cta':
-          return [b.heading, b.body].filter(Boolean).join(' — ');
+          return [b.heading, b.body].filter(Boolean).join(' - ');
       }
     })
     .filter(Boolean)

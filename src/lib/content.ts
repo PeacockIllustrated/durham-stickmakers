@@ -1,5 +1,5 @@
 /**
- * Tiny content renderer — splits a string on blank lines into paragraphs and
+ * Tiny content renderer - splits a string on blank lines into paragraphs and
  * preserves single line-breaks within a paragraph. Good enough for charity
  * blog posts; upgrade to full markdown later if the owner needs headings,
  * lists, bold, etc.

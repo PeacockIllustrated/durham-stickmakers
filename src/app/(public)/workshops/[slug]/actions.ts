@@ -18,7 +18,7 @@ function validEmail(email: string): boolean {
  * Public booking endpoint. Creates a stick_workshop_bookings row via the
  * service-role client (RLS blocks anon INSERTs) and decrements
  * spots_remaining atomically. For paid workshops the row is left as
- * 'pending' — the owner can follow up for payment offline, or we wire
+ * 'pending' - the owner can follow up for payment offline, or we wire
  * Stripe Checkout later.
  */
 export async function bookWorkshop(

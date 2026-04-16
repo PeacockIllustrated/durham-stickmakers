@@ -59,7 +59,7 @@ export function WorkshopCard({
           </span>
           <span className="text-small text-stick-driftwood">
             {soldOut
-              ? '—'
+              ? '-'
               : `${workshop.spots_remaining} ${workshop.spots_remaining === 1 ? 'spot' : 'spots'} left`}
           </span>
         </div>

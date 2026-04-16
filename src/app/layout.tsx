@@ -16,7 +16,7 @@ function resolveSiteUrl(): URL {
 export const metadata: Metadata = {
   metadataBase: resolveSiteUrl(),
   title: {
-    default: 'Durham Stick Makers — Heritage walking sticks, handmade in County Durham',
+    default: 'Durham Stick Makers - Heritage walking sticks, handmade in County Durham',
     template: '%s | Durham Stick Makers',
   },
   description:

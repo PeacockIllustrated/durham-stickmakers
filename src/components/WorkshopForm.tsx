@@ -45,7 +45,7 @@ export function WorkshopForm({ initial, mode }: WorkshopFormProps) {
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState<'save' | 'delete' | null>(null);
 
-  // The uploader is image-based — for workshops we only want one featured image.
+  // The uploader is image-based - for workshops we only want one featured image.
   // Wrap the single path in/out of the uploader's array shape.
   const uploaderValue: UploaderImage[] = form.featured_image_path
     ? [

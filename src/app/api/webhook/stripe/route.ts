@@ -39,7 +39,7 @@ export async function POST(request: Request) {
         await handleRefund(event.data.object as Stripe.Charge);
         break;
       }
-      // Silently ignore the rest — keeps the webhook endpoint tolerant
+      // Silently ignore the rest - keeps the webhook endpoint tolerant
       default:
         break;
     }
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   const supabase = createSupabaseServiceClient();
 
-  // Idempotency — if we've already created an order for this session, skip.
+  // Idempotency - if we've already created an order for this session, skip.
   const { data: existing } = await supabase
     .from('stick_orders')
     .select('id')

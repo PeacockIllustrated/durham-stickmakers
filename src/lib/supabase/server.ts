@@ -21,7 +21,7 @@ export function createSupabaseServerClient() {
           try {
             cookieStore.set({ name, value, ...options });
           } catch {
-            // Called from a Server Component — cookies are read-only there.
+            // Called from a Server Component - cookies are read-only there.
             // Middleware refreshes the session, so this is safe to swallow.
           }
         },
@@ -38,7 +38,7 @@ export function createSupabaseServerClient() {
 }
 
 /**
- * Service-role client — bypasses RLS. Only use in trusted server code
+ * Service-role client - bypasses RLS. Only use in trusted server code
  * (API routes that have already verified admin auth, webhooks, etc.).
  */
 export function createSupabaseServiceClient() {

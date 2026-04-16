@@ -42,7 +42,7 @@ export async function POST(request: Request) {
       meta_title: body.meta_title,
       meta_description: body.meta_description,
       featured_image_path: body.featured_image_path,
-      // First-publish timestamp — stamped on create only if publishing now
+      // First-publish timestamp - stamped on create only if publishing now
       published_at: body.status === 'published' ? new Date().toISOString() : null,
     })
     .select()

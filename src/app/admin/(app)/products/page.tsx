@@ -121,7 +121,7 @@ export default async function AdminProductsPage({
                         <span className="ml-2 text-xs uppercase tracking-wider text-stick-brass">Featured</span>
                       )}
                     </td>
-                    <td className="px-4 py-3 text-stick-shale">{p.category?.name ?? '—'}</td>
+                    <td className="px-4 py-3 text-stick-shale">{p.category?.name ?? '-'}</td>
                     <td className="px-4 py-3 text-stick-shale capitalize">{p.product_type.replace(/_/g, ' ')}</td>
                     <td className="px-4 py-3 text-stick-walnut font-medium">{formatPence(p.price_pence)}</td>
                     <td className="px-4 py-3">

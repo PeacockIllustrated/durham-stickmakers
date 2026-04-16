@@ -18,7 +18,7 @@ export async function submitContactForm(
   _prev: ContactFormResult | null,
   formData: FormData
 ): Promise<ContactFormResult> {
-  // Honeypot — bots tend to fill every field; humans never see this one.
+  // Honeypot - bots tend to fill every field; humans never see this one.
   const honeypot = String(formData.get('website') ?? '').trim();
   if (honeypot) {
     return { ok: true };
@@ -32,7 +32,7 @@ export async function submitContactForm(
   if (!name) return { ok: false, error: 'Please tell us your name.' };
   if (!validEmail(email)) return { ok: false, error: 'That email address does not look right.' };
   if (message.length < 10) return { ok: false, error: 'Please write a longer message so we can help properly.' };
-  if (message.length > 5000) return { ok: false, error: 'That message is a bit long — please trim it a touch.' };
+  if (message.length > 5000) return { ok: false, error: 'That message is a bit long - please trim it a touch.' };
 
   const subject = SUBJECTS.has(subjectRaw) ? subjectRaw : 'General enquiry';
 

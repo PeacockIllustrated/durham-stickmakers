@@ -18,7 +18,7 @@ export default function GalleryPage() {
             The work, up close
           </h1>
           <p className="mt-4 text-stick-shale text-lg">
-            Finished sticks, horn handles, workshop life and collections — a growing record of
+            Finished sticks, horn handles, workshop life and collections - a growing record of
             what passes across our benches at Fencehouses. Click any image to view full size.
           </p>
         </div>

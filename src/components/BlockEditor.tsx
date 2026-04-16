@@ -258,7 +258,7 @@ function CTAFields({
         <input
           value={block.href}
           onChange={(e) => onChange({ ...block, href: e.target.value })}
-          placeholder="/workshops — internal path, or https://… for an external site"
+          placeholder="/workshops - internal path, or https://… for an external site"
           className="input font-mono text-sm"
         />
         <p className="mt-1 text-xs text-stick-driftwood">
@@ -289,7 +289,7 @@ function QuoteFields({
       <input
         value={block.attribution ?? ''}
         onChange={(e) => onChange({ ...block, attribution: e.target.value })}
-        placeholder="Attribution (optional) — e.g. Margaret, 82"
+        placeholder="Attribution (optional) - e.g. Margaret, 82"
         className="input"
       />
     </div>

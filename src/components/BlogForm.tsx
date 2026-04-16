@@ -152,7 +152,7 @@ export function BlogForm({ initial, mode, knownCategories = [] }: BlogFormProps)
           <Section title="Content">
             <p className="text-small text-stick-driftwood -mt-2">
               Build your post from blocks. Each can be a paragraph, heading, quote, image, list,
-              or divider — add as many as you like and reorder with the arrows.
+              or divider - add as many as you like and reorder with the arrows.
             </p>
             <BlockEditor
               value={form.blocks}
@@ -201,7 +201,7 @@ export function BlogForm({ initial, mode, knownCategories = [] }: BlogFormProps)
                 onChange={(e) => update('author', e.target.value)}
               />
             </Field>
-            <Field label="Category" htmlFor="category" help="Optional — e.g. Technique, Workshop news, Member spotlight.">
+            <Field label="Category" htmlFor="category" help="Optional - e.g. Technique, Workshop news, Member spotlight.">
               <input
                 id="category"
                 className="input"

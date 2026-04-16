@@ -8,7 +8,7 @@ export interface SiteImage {
   alt: string;
   caption: string;
   category: ImageCategory;
-  /** Aspect hint — 'wide' for panoramic, 'portrait' for tall, 'square' otherwise. */
+  /** Aspect hint - 'wide' for panoramic, 'portrait' for tall, 'square' otherwise. */
   aspect: 'wide' | 'portrait' | 'square';
 }
 
@@ -49,7 +49,7 @@ export const SERVICE_CARDS: Array<{
     },
     title: 'Repairs & restorations',
     description:
-      'Bring us a tired stick — a broken ferrule, a split collar, a loose handle — and we will bring it back.',
+      'Bring us a tired stick - a broken ferrule, a split collar, a loose handle - and we will bring it back.',
     href: '/contact',
     cta: 'Ask about a repair',
   },
@@ -69,11 +69,11 @@ export const SERVICE_CARDS: Array<{
   },
 ];
 
-/** The lead image for the homepage hero — a close portrait of a dressed stick. */
+/** The lead image for the homepage hero - a close portrait of a dressed stick. */
 export const HERO_IMAGE: SiteImage = {
   src: '/images/gallery/individual-stick-portrait.jpg',
   alt: 'A handmade walking stick with a carved horn crook, photographed against a warm background',
-  caption: 'A dressed shepherds crook — hazel shank, ram horn handle',
+  caption: 'A dressed shepherds crook - hazel shank, ram horn handle',
   category: 'Finished sticks',
   aspect: 'portrait',
 };
@@ -87,12 +87,12 @@ export const ABOUT_TEASER_IMAGE: SiteImage = {
   aspect: 'square',
 };
 
-/** The full gallery — aggregates gallery/ and showcase/ folders. */
+/** The full gallery - aggregates gallery/ and showcase/ folders. */
 export const GALLERY_IMAGES: SiteImage[] = [
   {
     src: '/images/gallery/collection-panoramic-wide.jpg',
     alt: 'A full display case of dressed walking sticks arranged in a row',
-    caption: 'The collection — a seasons worth of bench time',
+    caption: 'The collection - a seasons worth of bench time',
     category: 'Collections',
     aspect: 'wide',
   },
@@ -106,7 +106,7 @@ export const GALLERY_IMAGES: SiteImage[] = [
   {
     src: '/images/gallery/individual-stick-portrait.jpg',
     alt: 'A single dressed walking stick photographed in close detail',
-    caption: 'Dressed stick — horn, brass collar, hazel shank',
+    caption: 'Dressed stick - horn, brass collar, hazel shank',
     category: 'Finished sticks',
     aspect: 'portrait',
   },
@@ -134,21 +134,21 @@ export const GALLERY_IMAGES: SiteImage[] = [
   {
     src: '/images/showcase/workshop-experience.jpg',
     alt: 'Stickmakers at a wooden bench shaping sticks',
-    caption: 'The Fencehouses workshop — bench, vice, and kettle',
+    caption: 'The Fencehouses workshop - bench, vice, and kettle',
     category: 'Workshop life',
     aspect: 'square',
   },
   {
     src: '/images/showcase/horn-handles-group.jpg',
     alt: 'A group of detailed horn handles showing grain and polish',
-    caption: 'Ram and buffalo horn — every handle unique',
+    caption: 'Ram and buffalo horn - every handle unique',
     category: 'Handles & dressing',
     aspect: 'square',
   },
   {
     src: '/images/showcase/stick-variety-group.jpg',
     alt: 'A variety of walking stick styles shown together',
-    caption: 'A variety of styles — thumbsticks, knobs, crooks',
+    caption: 'A variety of styles - thumbsticks, knobs, crooks',
     category: 'Finished sticks',
     aspect: 'square',
   },

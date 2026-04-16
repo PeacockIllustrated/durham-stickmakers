@@ -69,7 +69,7 @@ export async function PUT(
   return NextResponse.json({ id: params.id, firstPublish: wasUnpublished && body.status === 'published' });
 }
 
-/** Hard delete — blog posts don't need archive history. */
+/** Hard delete - blog posts don't need archive history. */
 export async function DELETE(
   _request: Request,
   { params }: { params: { id: string } }

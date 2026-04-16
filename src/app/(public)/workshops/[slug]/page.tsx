@@ -139,7 +139,7 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                     last-minute details as the date approaches.
                     {workshop.price_pence > 0 && (
                       <>
-                        {' '}Payment is taken when you arrive — or by bank transfer after we
+                        {' '}Payment is taken when you arrive - or by bank transfer after we
                         confirm; we&rsquo;ll be in touch.
                       </>
                     )}
@@ -155,7 +155,7 @@ export default async function WorkshopDetailPage({ params }: PageProps) {
                 <p className="text-stick-shale">This workshop has already been held.</p>
               ) : (
                 <p className="text-stick-shale">
-                  All spots are taken. Drop us a line to be added to the waiting list —
+                  All spots are taken. Drop us a line to be added to the waiting list -
                   occasionally a place opens up.
                 </p>
               )}

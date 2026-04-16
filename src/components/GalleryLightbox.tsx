@@ -35,7 +35,7 @@ export function GalleryLightbox({ images, categories }: GalleryLightboxProps) {
     );
   }, [filtered.length]);
 
-  // Keyboard navigation — arrows, esc
+  // Keyboard navigation - arrows, esc
   useEffect(() => {
     if (lightboxIndex === null) return;
     function onKey(e: KeyboardEvent) {
@@ -88,7 +88,7 @@ export function GalleryLightbox({ images, categories }: GalleryLightboxProps) {
         })}
       </div>
 
-      {/* Masonry-ish grid — CSS columns preserves natural heights */}
+      {/* Masonry-ish grid - CSS columns preserves natural heights */}
       {filtered.length === 0 ? (
         <p className="text-stick-driftwood">No images in this category yet.</p>
       ) : (

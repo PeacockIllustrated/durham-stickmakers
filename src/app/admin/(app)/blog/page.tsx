@@ -119,8 +119,8 @@ export default async function AdminBlogPage({
                         {p.title}
                       </Link>
                     </td>
-                    <td className="px-4 py-3 text-stick-shale">{p.category ?? '—'}</td>
-                    <td className="px-4 py-3 text-stick-shale">{p.author ?? '—'}</td>
+                    <td className="px-4 py-3 text-stick-shale">{p.category ?? '-'}</td>
+                    <td className="px-4 py-3 text-stick-shale">{p.author ?? '-'}</td>
                     <td className="px-4 py-3">
                       <span className={cn('inline-flex rounded-full px-2.5 py-1 text-xs font-medium capitalize', STATUS_COLOURS[p.status])}>
                         {p.status}

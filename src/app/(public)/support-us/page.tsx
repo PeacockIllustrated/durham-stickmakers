@@ -6,7 +6,7 @@ import { ABOUT_TEASER_IMAGE, HOMEPAGE_SHOWCASE } from '@/lib/site-images';
 export const metadata: Metadata = {
   title: 'Support us',
   description:
-    'Ways to support Durham Stick Makers — buy a stick, join a workshop, commission bespoke work, or just come and say hello.',
+    'Ways to support Durham Stick Makers - buy a stick, join a workshop, commission bespoke work, or just come and say hello.',
 };
 
 const WAYS = [
@@ -34,7 +34,7 @@ const WAYS = [
   {
     title: 'Come and visit',
     body:
-      'Monday and Tuesday evenings, 6–9pm, at Fencehouses Community Centre. Drop in — the kettle is always on.',
+      'Monday and Tuesday evenings, 6–9pm, at Fencehouses Community Centre. Drop in - the kettle is always on.',
     href: '/contact',
     cta: 'Find us',
   },
@@ -54,7 +54,7 @@ export default function SupportUsPage() {
             </h1>
             <p className="mt-5 text-stick-shale text-lg leading-relaxed">
               We&rsquo;re a small group of heritage craftspeople in County Durham. What keeps
-              the craft going isn&rsquo;t fundraising drives — it&rsquo;s people showing up,
+              the craft going isn&rsquo;t fundraising drives - it&rsquo;s people showing up,
               buying a stick, learning alongside us, or asking for a commission. Every one of
               those things feeds the workshop.
             </p>
@@ -80,7 +80,7 @@ export default function SupportUsPage() {
         <div className="container-wide">
           <h2 className="font-heading text-h1">Ways to get involved</h2>
           <p className="mt-3 max-w-prose text-stick-shale">
-            None of this is transactional charity. Pick whatever fits your interest — whether
+            None of this is transactional charity. Pick whatever fits your interest - whether
             that&rsquo;s a finished stick, a workshop, or simply a chat over tea.
           </p>
 
@@ -110,7 +110,7 @@ export default function SupportUsPage() {
             <h2 className="font-heading text-h2">Want to help in another way?</h2>
             <p className="mt-3 max-w-prose mx-auto text-stick-shale">
               If you know somebody who would benefit from a stick, or you&rsquo;d like to volunteer
-              your time, a photograph, a story, or a donation of tools or materials — please get
+              your time, a photograph, a story, or a donation of tools or materials - please get
               in touch. We&rsquo;ll reply.
             </p>
             <div className="mt-6">

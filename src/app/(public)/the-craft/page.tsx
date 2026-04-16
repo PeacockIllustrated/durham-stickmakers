@@ -7,7 +7,7 @@ import type { StickCategory, StickMaterial, MaterialType } from '@/types/stick';
 export const metadata: Metadata = {
   title: 'The Craft',
   description:
-    'An illustrated guide to stick making — stick types, materials (wood, horn, antler), and the process of dressing a stick from raw shank to finished piece.',
+    'An illustrated guide to stick making - stick types, materials (wood, horn, antler), and the process of dressing a stick from raw shank to finished piece.',
   alternates: { canonical: '/the-craft' },
 };
 
@@ -36,7 +36,7 @@ const MATERIAL_INTRO: Record<MaterialType, string> = {
   shank:
     'The main length of the stick. Cut from coppiced hardwood, left to season for a year or more, then straightened with heat before dressing.',
   handle:
-    'Where the hand meets the stick. Shaped from natural materials — each one unique in colour, grain, and character.',
+    'Where the hand meets the stick. Shaped from natural materials - each one unique in colour, grain, and character.',
   collar:
     'The joint between handle and shank. Adds strength, holds the handle in place, and finishes the stick with a quiet detail.',
 };
@@ -47,7 +47,7 @@ const PROCESS_STEPS: Array<{ title: string; body: string }> = [
   {
     title: 'Cut and season',
     body:
-      'Hazel, holly, chestnut or ash is cut in winter — when the sap is down — and stacked to season. Depending on the wood, that can be a year or more before it&rsquo;s ready for the bench.',
+      'Hazel, holly, chestnut or ash is cut in winter - when the sap is down - and stacked to season. Depending on the wood, that can be a year or more before it&rsquo;s ready for the bench.',
   },
   {
     title: 'Straighten',
@@ -57,7 +57,7 @@ const PROCESS_STEPS: Array<{ title: string; body: string }> = [
   {
     title: 'Dress the handle',
     body:
-      'Horn is boiled, pressed, and shaped over a former. Antler is selected for its curve and cut to fit. Wood handles are carved by hand — sometimes into animals, birds, or decorative forms.',
+      'Horn is boiled, pressed, and shaped over a former. Antler is selected for its curve and cut to fit. Wood handles are carved by hand - sometimes into animals, birds, or decorative forms.',
   },
   {
     title: 'Fit and finish',
@@ -68,9 +68,9 @@ const PROCESS_STEPS: Array<{ title: string; body: string }> = [
 
 const CARE_TIPS: string[] = [
   'Keep your stick out of direct heat and damp. A cool dry corner is ideal.',
-  'If it gets wet, let it dry slowly at room temperature — never on a radiator or next to a fire.',
+  'If it gets wet, let it dry slowly at room temperature - never on a radiator or next to a fire.',
   'Wipe the shank and handle occasionally with a soft cloth. A very light rub of oil once a year keeps wood handles fed.',
-  'The ferrule will wear over time — get in touch when it needs replacing and we&rsquo;ll fit a new one.',
+  'The ferrule will wear over time - get in touch when it needs replacing and we&rsquo;ll fit a new one.',
 ];
 
 async function fetchCraftData(): Promise<{
@@ -158,10 +158,10 @@ export default async function TheCraftPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { name: 'Handle', desc: 'The head — horn, antler, or carved wood. The part your hand knows.' },
+              { name: 'Handle', desc: 'The head - horn, antler, or carved wood. The part your hand knows.' },
               { name: 'Collar', desc: 'The metal or horn ring that marries handle to shank.' },
-              { name: 'Shank', desc: 'The length — hazel, holly, chestnut, or ash. Seasoned and straightened.' },
-              { name: 'Ferrule', desc: 'The tip — brass or rubber — where the stick meets the ground.' },
+              { name: 'Shank', desc: 'The length - hazel, holly, chestnut, or ash. Seasoned and straightened.' },
+              { name: 'Ferrule', desc: 'The tip - brass or rubber - where the stick meets the ground.' },
             ].map((part) => (
               <div key={part.name} className="rounded-card border border-stick-stone bg-stick-surface p-5">
                 <p className="label-caps">{part.name}</p>
@@ -199,7 +199,7 @@ export default async function TheCraftPage() {
                     <div className={`relative aspect-[4/3] md:aspect-auto md:h-full md:col-span-2 bg-stick-stone ${isEven ? 'md:order-1' : 'md:order-2'}`}>
                       <Image
                         src={imgSrc}
-                        alt={`${cat.name} — handmade by Durham Stick Makers`}
+                        alt={`${cat.name} - handmade by Durham Stick Makers`}
                         fill
                         sizes="(min-width: 768px) 40vw, 100vw"
                         className="object-cover"
@@ -226,7 +226,7 @@ export default async function TheCraftPage() {
             <span className="label-caps">Materials</span>
             <h2 className="mt-2 font-heading text-h1">What a stick is made of</h2>
             <p className="mt-3 text-stick-shale">
-              Every stick draws on three streams of material — a wood for the shank, a natural
+              Every stick draws on three streams of material - a wood for the shank, a natural
               material for the handle, and a metal or horn collar to join them.
             </p>
           </div>

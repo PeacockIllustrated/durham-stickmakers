@@ -52,7 +52,7 @@ function BlockView({ block }: { block: Block }) {
           </p>
           {block.attribution && (
             <footer className="mt-3 text-small text-stick-driftwood">
-              — {block.attribution}
+              - {block.attribution}
             </footer>
           )}
         </blockquote>

@@ -6,7 +6,7 @@ import { formatTime } from '@/lib/utils';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with Durham Stick Makers — commission a stick, ask about a repair, book a workshop, or just say hello.',
+    'Get in touch with Durham Stick Makers - commission a stick, ask about a repair, book a workshop, or just say hello.',
 };
 
 export default async function ContactPage() {
@@ -19,7 +19,7 @@ export default async function ContactPage() {
           <span className="label-caps">Contact</span>
           <h1 className="mt-2 font-heading text-hero">Get in touch</h1>
           <p className="mt-4 text-stick-shale text-lg">
-            Drop us a line about a commission, a repair, a workshop, or anything else — we
+            Drop us a line about a commission, a repair, a workshop, or anything else - we
             read every message.
           </p>
         </div>

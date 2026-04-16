@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 // drawn from the project brief and the current site. Owner can replace the copy
 // in-place, or we can move it to `stick_pages` and build an admin editor.
 const STORY_PARAGRAPHS: string[] = [
-  'Durham Stick Makers is a small community of heritage craftspeople based in County Durham. We meet every Monday and Tuesday evening to make and dress walking sticks using the same woods, horns and antlers our predecessors worked with — hazel, holly, ram horn, buffalo horn, roe antler — and the same slow, hand-shaped techniques.',
-  'The charity was formed to keep an endangered craft alive. Stick making appears on the Heritage Crafts Association Red List of Endangered Crafts — fewer and fewer people learn to do it, and the skills quietly disappear with the people who hold them. We teach, we make, and we give sticks away to people who need them.',
+  'Durham Stick Makers is a small community of heritage craftspeople based in County Durham. We meet every Monday and Tuesday evening to make and dress walking sticks using the same woods, horns and antlers our predecessors worked with - hazel, holly, ram horn, buffalo horn, roe antler - and the same slow, hand-shaped techniques.',
+  'The charity was formed to keep an endangered craft alive. Stick making appears on the Heritage Crafts Association Red List of Endangered Crafts - fewer and fewer people learn to do it, and the skills quietly disappear with the people who hold them. We teach, we make, and we give sticks away to people who need them.',
 ];
 
 const MISSION_POINTS: Array<{ title: string; body: string }> = [
@@ -30,7 +30,7 @@ const MISSION_POINTS: Array<{ title: string; body: string }> = [
   {
     title: 'Put sticks in hands',
     body:
-      'Provide walking sticks free of charge to people who need them — after illness, injury, or simply because a good stick is out of reach. Nobody who wants a stick should go without one.',
+      'Provide walking sticks free of charge to people who need them - after illness, injury, or simply because a good stick is out of reach. Nobody who wants a stick should go without one.',
   },
   {
     title: 'Welcome everybody',
@@ -105,7 +105,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Mission — three pillars */}
+      {/* Mission - three pillars */}
       <section className="section pt-0">
         <div className="container-wide">
           <div className="max-w-2xl">
@@ -207,7 +207,7 @@ export default async function AboutPage() {
               {config.workshop_address.county} · {config.workshop_address.postcode}
             </address>
             <p className="mt-4 text-stick-shale leading-relaxed">
-              We meet every Monday and Tuesday evening through the year. Drop in at any point —
+              We meet every Monday and Tuesday evening through the year. Drop in at any point -
               whether you&rsquo;ve a stick to finish, one to start, or you just want to watch.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -229,7 +229,7 @@ export default async function AboutPage() {
               </h2>
               <p className="mt-4 text-stick-linen/85 leading-relaxed max-w-prose">
                 Stick making is one of the traditional British crafts on the Heritage Crafts
-                Association Red List of Endangered Crafts — the techniques are at real risk of
+                Association Red List of Endangered Crafts - the techniques are at real risk of
                 being lost. We work to keep them in practice, in public view, and in the hands
                 of people who&rsquo;ll carry them forward.
               </p>

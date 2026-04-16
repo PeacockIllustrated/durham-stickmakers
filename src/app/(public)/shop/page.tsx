@@ -32,7 +32,7 @@ export default async function ShopPage() {
           <span className="label-caps">Shop</span>
           <h1 className="mt-2 font-heading text-hero">Handmade sticks &amp; supplies</h1>
           <p className="mt-4 text-stick-shale text-lg">
-            Each finished stick is unique — dressed by hand by a Durham Stick Makers member.
+            Each finished stick is unique - dressed by hand by a Durham Stick Makers member.
             Proceeds support the charity&rsquo;s work preserving the craft.
           </p>
         </div>

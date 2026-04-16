@@ -57,7 +57,7 @@ async function fetchRelated(
 
     if (rows.length > 0 || !category) return rows;
 
-    // No same-category posts — fetch any 3 recent posts
+    // No same-category posts - fetch any 3 recent posts
     const { data: anyData } = await supabase
       .from('stick_blog_posts')
       .select('*')

@@ -25,7 +25,7 @@ export function ContactForm() {
         aria-live="polite"
         className="rounded-card border border-stick-fell/30 bg-stick-fell/5 p-6"
       >
-        <p className="font-heading text-h3 text-stick-fell">Thank you — we&rsquo;ve got it.</p>
+        <p className="font-heading text-h3 text-stick-fell">Thank you - we&rsquo;ve got it.</p>
         <p className="mt-2 text-stick-shale text-sm leading-relaxed">
           Somebody from the workshop will reply as soon as we can, usually within a few days.
           If it&rsquo;s urgent, drop in on a Monday or Tuesday evening.
@@ -45,7 +45,7 @@ export function ContactForm() {
         </div>
       )}
 
-      {/* Honeypot — hidden from humans, tempting to bots */}
+      {/* Honeypot - hidden from humans, tempting to bots */}
       <div className="absolute left-[-9999px]" aria-hidden="true">
         <label htmlFor="website">Website</label>
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
@@ -101,7 +101,7 @@ export function ContactForm() {
           minLength={10}
           maxLength={5000}
           className="input font-body min-h-[9rem]"
-          placeholder="Tell us what you&rsquo;re thinking — a commission, a question, anything really."
+          placeholder="Tell us what you&rsquo;re thinking - a commission, a question, anything really."
         />
       </div>
 

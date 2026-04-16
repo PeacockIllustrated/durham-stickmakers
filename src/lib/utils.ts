@@ -1,5 +1,5 @@
 /**
- * Tiny className joiner — like `clsx` but zero-dependency.
+ * Tiny className joiner - like `clsx` but zero-dependency.
  * Accepts strings, undefined, false, and arrays.
  */
 export function cn(...inputs: Array<string | false | null | undefined>): string {

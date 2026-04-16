@@ -65,9 +65,9 @@ export default async function AdminDashboard() {
         <div className="rounded-card border border-stick-stone bg-stick-surface p-6">
           <h2 className="font-heading text-h3">Tips</h2>
           <ul className="mt-4 space-y-2 text-sm text-stick-shale leading-relaxed">
-            <li>· Upload multiple photos per stick — drag the first image to set it as primary.</li>
+            <li>· Upload multiple photos per stick - drag the first image to set it as primary.</li>
             <li>· Mark a stick as &ldquo;Featured&rdquo; to show it on the homepage.</li>
-            <li>· Save as Draft to come back later — only Published items appear in the shop.</li>
+            <li>· Save as Draft to come back later - only Published items appear in the shop.</li>
           </ul>
         </div>
       </div>

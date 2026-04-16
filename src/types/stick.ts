@@ -1,4 +1,4 @@
-// Durham Stickmakers — TypeScript Types
+// Durham Stickmakers - TypeScript Types
 // Generated to match stick_ prefixed Supabase schema
 
 export type ProductType = 'one_of_a_kind' | 'supply' | 'gift_voucher' | 'workshop';

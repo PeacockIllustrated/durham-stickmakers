@@ -14,7 +14,7 @@ import {
 import type { StickProduct, StickWorkshop } from '@/types/stick';
 
 export const metadata: Metadata = {
-  title: 'Durham Stick Makers — Heritage walking sticks, handmade in County Durham',
+  title: 'Durham Stick Makers - Heritage walking sticks, handmade in County Durham',
   description:
     'A registered charity preserving the endangered craft of stick making. Shop handmade shepherds crooks, thumbsticks, and walking sticks, or join a workshop in Fencehouses.',
   alternates: { canonical: '/' },
@@ -103,14 +103,14 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Service cards — what we do */}
+      {/* Service cards - what we do */}
       <section className="section">
         <div className="container-wide">
           <div className="max-w-2xl mb-10 md:mb-12">
             <span className="label-caps">What we do</span>
             <h2 className="mt-2 font-heading text-h1">Three things, well</h2>
             <p className="mt-3 text-stick-shale">
-              Make, mend, and teach. Each one feeding the others — and all of it in the service of
+              Make, mend, and teach. Each one feeding the others - and all of it in the service of
               keeping a heritage craft alive.
             </p>
           </div>
@@ -145,7 +145,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Featured sticks — or a preview gallery if no products yet */}
+      {/* Featured sticks - or a preview gallery if no products yet */}
       <section className="section pt-0">
         <div className="container-wide">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
@@ -156,7 +156,7 @@ export default async function HomePage() {
               </h2>
               <p className="mt-2 max-w-prose text-stick-shale">
                 {featured.length > 0
-                  ? 'Each stick is one of a kind — dressed by hand by a Durham Stick Makers member.'
+                  ? 'Each stick is one of a kind - dressed by hand by a Durham Stick Makers member.'
                   : 'A preview of the sticks our members dress and display. The shop opens for business soon.'}
               </p>
             </div>
@@ -224,7 +224,7 @@ export default async function HomePage() {
                 <h2 className="mt-2 font-heading text-h1">Drop in on a Monday or Tuesday</h2>
                 <p className="mt-4 max-w-prose text-stick-shale">
                   We meet at Fencehouses Community Centre every Monday and Tuesday evening from
-                  6pm–9pm. Drop-in welcome — the kettle is always on.
+                  6pm–9pm. Drop-in welcome - the kettle is always on.
                 </p>
                 <div className="mt-6">
                   <Link href="/workshops" className="btn-primary">See all workshops</Link>
@@ -249,7 +249,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Get involved — soft, non-transactional */}
+      {/* Get involved - soft, non-transactional */}
       <section className="section">
         <div className="container-wide">
           <div className="rounded-card bg-stick-walnut px-6 py-12 md:px-16 md:py-16 text-stick-linen">
@@ -298,8 +298,8 @@ export default async function HomePage() {
             <div className="mt-4 space-y-4 text-stick-shale">
               <p>
                 Durham Stick Makers is a small charity of heritage craftsmen based in County Durham.
-                We make and sell handmade walking sticks — shepherds crooks, thumbsticks, market
-                sticks and more — shaped from hazel, holly, ram horn and antler using techniques
+                We make and sell handmade walking sticks - shepherds crooks, thumbsticks, market
+                sticks and more - shaped from hazel, holly, ram horn and antler using techniques
                 passed down through generations.
               </p>
               <p>

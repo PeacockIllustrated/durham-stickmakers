@@ -79,7 +79,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
       }
     } catch {
-      // Tolerate — static sitemap is still valid
+      // Tolerate - static sitemap is still valid
     }
   }
 

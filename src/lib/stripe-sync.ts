@@ -10,7 +10,7 @@ type ProductForSync = Pick<
 /**
  * Ensure a Stripe product + price exists and matches this record.
  * Creates a new Price if price_pence changed (Stripe prices are immutable).
- * Skips silently if Stripe is not configured — lets the admin work offline.
+ * Skips silently if Stripe is not configured - lets the admin work offline.
  *
  * Returns the IDs to persist back to stick_products.
  */
@@ -74,7 +74,7 @@ export async function syncProductToStripe(product: ProductForSync): Promise<{
 }
 
 /**
- * Deactivate a Stripe product (used when archiving). Never deletes — Stripe
+ * Deactivate a Stripe product (used when archiving). Never deletes - Stripe
  * retains historical prices/orders even when product is inactive.
  */
 export async function deactivateStripeProduct(stripeProductId: string | null): Promise<void> {
@@ -83,6 +83,6 @@ export async function deactivateStripeProduct(stripeProductId: string | null): P
     const stripe = getStripe();
     await stripe.products.update(stripeProductId, { active: false });
   } catch {
-    // Swallow — archival should not fail because of a Stripe sync hiccup.
+    // Swallow - archival should not fail because of a Stripe sync hiccup.
   }
 }
