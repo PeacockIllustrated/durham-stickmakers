@@ -41,18 +41,21 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN?.trim();
+const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim();
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB" className={`${dmSerif.variable} ${inter.variable}`}>
       <head>
-        {plausibleDomain && (
-          <script
-            defer
-            data-domain={plausibleDomain}
-            src="https://plausible.io/js/script.js"
-          />
+        {ga4Id && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${ga4Id}');`,
+              }}
+            />
+          </>
         )}
       </head>
       <body>{children}</body>
