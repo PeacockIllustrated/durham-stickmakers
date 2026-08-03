@@ -306,9 +306,12 @@ export function ObituaryNotice() {
     <section
       id="in-memoriam"
       aria-labelledby="in-memoriam-heading"
-      className="bg-gradient-to-b from-stick-cream to-stick-linen py-14 md:py-20"
+      className="bg-gradient-to-b from-stick-cream to-stick-linen py-12 md:py-20"
     >
-      <div className="container-wide">
+      {/* Deliberately not container-wide: its px-6 stacks with the plaque's own
+          padding and costs nearly a third of a 360px screen, which drops the
+          tribute to a 29-character measure. Matches container-wide from sm up. */}
+      <div className="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8">
         <div className="relative mx-auto max-w-5xl overflow-hidden rounded-card bg-walnut-gradient text-stick-linen shadow-[0_24px_60px_-24px_rgba(47,56,66,0.6)]">
           {/* Warm brass light falling from the head of the plaque */}
           <div
@@ -319,24 +322,26 @@ export function ObituaryNotice() {
           {/* Ornate double rule with a flourish at each corner */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-3 rounded-lg border border-stick-brass/25 md:inset-5"
+            /* inset-2 on a phone: the plaque's own padding is tight there, and
+               at inset-3 the tribute all but touched this rule */
+            className="pointer-events-none absolute inset-2 rounded-lg border border-stick-brass/25 sm:inset-3 md:inset-5"
           >
-            <div className="absolute inset-[6px] rounded-md border border-stick-brass/10" />
-            <span className="absolute -left-px -top-px block h-9 w-9 text-stick-brass/45 md:h-11 md:w-11">
+            <div className="absolute inset-[5px] rounded-md border border-stick-brass/10 sm:inset-[6px]" />
+            <span className="absolute -left-px -top-px block h-8 w-8 text-stick-brass/45 sm:h-9 sm:w-9 md:h-11 md:w-11">
               <CornerFlourish className="h-full w-full" />
             </span>
-            <span className="absolute -right-px -top-px block h-9 w-9 -scale-x-100 text-stick-brass/45 md:h-11 md:w-11">
+            <span className="absolute -right-px -top-px block h-8 w-8 sm:h-9 sm:w-9 -scale-x-100 text-stick-brass/45 md:h-11 md:w-11">
               <CornerFlourish className="h-full w-full" />
             </span>
-            <span className="absolute -bottom-px -left-px block h-9 w-9 -scale-y-100 text-stick-brass/45 md:h-11 md:w-11">
+            <span className="absolute -bottom-px -left-px block h-8 w-8 sm:h-9 sm:w-9 -scale-y-100 text-stick-brass/45 md:h-11 md:w-11">
               <CornerFlourish className="h-full w-full" />
             </span>
-            <span className="absolute -bottom-px -right-px block h-9 w-9 -scale-100 text-stick-brass/45 md:h-11 md:w-11">
+            <span className="absolute -bottom-px -right-px block h-8 w-8 sm:h-9 sm:w-9 -scale-100 text-stick-brass/45 md:h-11 md:w-11">
               <CornerFlourish className="h-full w-full" />
             </span>
           </div>
 
-          <div className="relative px-7 py-12 sm:px-10 md:px-14 md:py-16">
+          <div className="relative px-5 py-10 sm:px-10 sm:py-12 md:px-14 md:py-16">
             {/* Headpiece — a proportionate ornament on a phone, opening out
                 into a full-width header band from md up, where a centred
                 ornament would sit oddly against the flush-left type below */}
@@ -354,7 +359,7 @@ export function ObituaryNotice() {
               foot of column 1 — self-end lands its ground line on the same
               baseline as the last line of the tribute.
             */}
-            <div className="mt-10 grid gap-y-10 md:mt-14 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-x-10">
+            <div className="mt-8 grid gap-y-8 sm:mt-10 sm:gap-y-10 md:mt-14 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-x-10">
               {/* Portrait — column 1, row 1. Capped while stacked so it does
                   not balloon to the full plaque width on a tablet; the desktop
                   column sets its own width */}
@@ -423,9 +428,9 @@ export function ObituaryNotice() {
                   Founder member and Chairman of Durham Stickmakers
                 </p>
 
-                <CollarMark className="mt-8 h-auto w-full max-w-[200px] text-stick-brass/70" />
+                <CollarMark className="mt-7 h-auto w-full max-w-[200px] text-stick-brass/70 sm:mt-8" />
 
-                <div className="mt-8 space-y-5 text-stick-linen/85">
+                <div className="mt-7 space-y-5 text-stick-linen/85 sm:mt-8">
                   {TRIBUTE_PARAGRAPHS.map((paragraph) => (
                     <p key={paragraph.slice(0, 32)} className="leading-relaxed">
                       {paragraph}
@@ -436,7 +441,7 @@ export function ObituaryNotice() {
                 {/* The epitaph closes the tribute on the same margin, so the
                     column reads as one block of type rather than a centred
                     banner hung underneath it */}
-                <blockquote className="mt-10 border-t border-stick-brass/25 pt-8">
+                <blockquote className="mt-8 border-t border-stick-brass/25 pt-7 sm:mt-10 sm:pt-8">
                   <p className="font-heading text-[clamp(1.25rem,2.2vw,1.5rem)] leading-snug text-stick-linen">
                     {CONDOLENCE}
                   </p>
