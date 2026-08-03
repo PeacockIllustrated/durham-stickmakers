@@ -245,3 +245,43 @@ export const ORDER_STATUS_LABELS: Record<OrderStatus, string> = {
   cancelled: 'Cancelled',
   refunded: 'Refunded',
 };
+
+/**
+ * Why an image still needs work. Flags are keyed on storage_path, so one flag
+ * covers an image wherever it is used across the site.
+ */
+export type ImageFlagReason = 'upscale' | 'remake' | 'replace' | 'retouch';
+
+export interface StickImageFlag {
+  id: string;
+  storage_path: string;
+  reason: ImageFlagReason;
+  note: string | null;
+  resolved: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+/** Image flag display labels */
+export const IMAGE_FLAG_LABELS: Record<ImageFlagReason, string> = {
+  upscale: 'Needs upscaling',
+  remake: 'Needs remaking',
+  replace: 'Needs replacing',
+  retouch: 'Needs retouching',
+};
+
+/** What each flag reason means, shown as help text in the admin */
+export const IMAGE_FLAG_HINTS: Record<ImageFlagReason, string> = {
+  upscale: 'Too small or too soft for the size it is shown at',
+  remake: 'Reshoot — lighting, framing or background is wrong',
+  replace: 'Wrong image for this listing',
+  retouch: 'Crop, straighten or tidy up the background',
+};
+
+/** Reason order used by the picker and the admin list */
+export const IMAGE_FLAG_REASONS: ImageFlagReason[] = [
+  'upscale',
+  'remake',
+  'replace',
+  'retouch',
+];
