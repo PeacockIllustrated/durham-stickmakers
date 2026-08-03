@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
 import { getSiteConfig } from '@/lib/site-config';
+import { ObituaryNotice } from '@/components/ObituaryNotice';
 import { ProductCard } from '@/components/ProductCard';
 import { formatDate, formatPence, formatTime } from '@/lib/utils';
 import {
@@ -102,6 +103,9 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* In memoriam - Tom Keers */}
+      <ObituaryNotice />
 
       {/* Service cards - what we do */}
       <section className="section">
