@@ -4,17 +4,18 @@ import Image from 'next/image';
  * In-memoriam notice for the homepage — a slate-and-brass plaque carrying the
  * tribute to Tom Keers, founder member and Chairman of Durham Stick Makers.
  *
- * Layout: a symmetric headpiece over an asymmetric body over a symmetric foot.
- * On desktop the body splits into two columns — a framed portrait on the left,
- * the tribute on the right, divided by a brass rule. Below `lg` the two columns
- * stack, portrait first.
+ * Layout: everything hangs off one left margin, with symmetric ornament kept to
+ * full-width bands. On desktop the body splits into two columns — a framed
+ * portrait on the left, the tribute on the right, divided by a brass rule.
+ * Below `lg` the two columns stack, portrait first.
  *
- * The ornament is drawn entirely from his craft: paired shepherds crooks at the
- * head, a memorial oval holding a crossed crook and knob stick where the
- * photograph will go, a brass collar rule above the tribute, and a standing row
- * of stick types — crook, thumbstick, knob stick, market stick, staff — as a
- * guard of honour at the foot. Every ornament is decorative and hidden from
- * assistive technology; only the tribute text is announced.
+ * The ornament is drawn entirely from his craft: paired shepherds crooks
+ * carried on the header band, a memorial oval holding a crossed crook and knob
+ * stick where the photograph will go, a brass collar marking the head of the
+ * tribute, and a standing row of stick types — crook, thumbstick, knob stick,
+ * market stick, staff — as a guard of honour at the foot of the portrait
+ * column. Every ornament is decorative and hidden from assistive technology;
+ * only the tribute text is announced.
  *
  * The tribute is reproduced verbatim as supplied by the charity, including its
  * own spelling of "Durham Stickmakers".
@@ -31,13 +32,14 @@ import Image from 'next/image';
  *   - a file placed in /public — e.g. '/images/tom-keers.jpg', or
  *   - a Supabase storage URL (that host is already allowed in next.config.js).
  *
- * Nothing else needs changing — the frame, corner ticks and caption stay put.
- * A portrait crop close to 4:5 fills the frame without cropping surprises.
+ * Nothing else needs changing — the frame and corner ticks stay put, and the
+ * caption appears with the photograph. A portrait crop close to 4:5 fills the
+ * frame without cropping surprises.
  */
 const PORTRAIT = {
   src: null as string | null,
   alt: 'Tom Keers',
-  /** Shown under the frame once a photograph is in place. */
+  /** Shown under the frame once a photograph is in place; hidden until then. */
   caption: 'Tom Keers',
 };
 
@@ -394,9 +396,13 @@ export function ObituaryNotice() {
                   </span>
                 </div>
 
-                <figcaption className="mt-4 text-xs uppercase tracking-[0.2em] text-stick-linen/65">
-                  {PORTRAIT.src ? PORTRAIT.caption : 'Photograph to follow'}
-                </figcaption>
+                {/* No caption while the slot is empty — the frame stands on its
+                    own rather than announcing the missing photograph */}
+                {PORTRAIT.src && (
+                  <figcaption className="mt-4 text-xs uppercase tracking-[0.2em] text-stick-linen/65">
+                    {PORTRAIT.caption}
+                  </figcaption>
+                )}
               </figure>
 
               {/* Tribute — column 2, spanning both rows, divided from the
