@@ -99,7 +99,8 @@ p { text-wrap: pretty; }
 .front .call .num { font-size: var(--t-h2a); line-height: 1; margin-top: 1.6mm; }
 .front .call .num span { color: var(--brass); }
 .front .gift { text-align: right; font-size: var(--t-small); line-height: 1.45; color: #D5DAE1; }
-.front .gift .label { display: block; color: var(--brass); margin-bottom: .8mm; }
+.front .gift .label { display: block; color: var(--brass); margin-bottom: 1.2mm; }
+.front .gift .url { font-size: var(--t-body); color: var(--linen); font-weight: 500; letter-spacing: .01em; }
 
 /* ───────────────────────── BACK ───────────────────────── */
 .back .inner { position: absolute; inset: var(--safe); display: flex; flex-direction: column; }
@@ -151,9 +152,9 @@ p { text-wrap: pretty; }
 .book .price .per { font-size: var(--t-small); font-weight: 500; margin-top: 1.2mm; }
 .book .contact { padding: 4.2mm 5mm; }
 .book .contact .label { color: var(--brass); }
-.book .num { font-size: var(--t-h2a); line-height: 1; margin-top: 2mm; }
+.book .num { font-size: var(--t-h2a); line-height: 1; margin-top: 2mm; margin-bottom: 2.4mm; }
 .book .num span { color: var(--brass); }
-.book .row { display: flex; align-items: center; gap: 2mm; font-size: var(--t-small); margin-top: 2.4mm; color: #D5DAE1; }
+.book .row { display: flex; align-items: center; gap: 2mm; font-size: var(--t-small); margin-top: 1.6mm; color: #D5DAE1; }
 .book .row svg { width: 3.2mm; height: 3.2mm; flex: none; }
 
 /* Gift voucher: drawn as a ticket stub */
@@ -220,8 +221,8 @@ p { text-wrap: pretty; }
         <div class="num serif">07715 <span>422651</span></div>
       </div>
       <div class="gift">
-        <span class="label">Gift vouchers</span>
-        available — the ideal gift
+        <span class="label">Gift vouchers available</span>
+        <span class="url">durham-stickmakers.co.uk</span>
       </div>
     </div>
   </div>
@@ -321,6 +322,10 @@ p { text-wrap: pretty; }
           <svg viewBox="0 0 24 24" fill="none" stroke="#C4A265" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
           rdwilliams471@gmail.com
         </div>
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C4A265" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5z"/></svg>
+          durham-stickmakers.co.uk
+        </div>
       </div>
     </div>
 
@@ -333,7 +338,7 @@ p { text-wrap: pretty; }
     </div>
 
     <div class="colophon">
-      <span>Durham Stick Makers · Preserving a heritage craft</span>
+      <span>durham-stickmakers.co.uk</span>
       <span>Registered Charity 1212357</span>
     </div>
   </div>
