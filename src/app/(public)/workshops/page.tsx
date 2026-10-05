@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
 import { getSiteConfig } from '@/lib/site-config';
 import { WorkshopCard } from '@/components/WorkshopCard';
+import { CourseCard } from '@/components/CourseCard';
+import { COURSES } from '@/lib/courses';
 import { ABOUT_TEASER_IMAGE } from '@/lib/site-images';
 import { formatTime } from '@/lib/utils';
 import type { StickWorkshop } from '@/types/stick';
@@ -10,7 +12,7 @@ import type { StickWorkshop } from '@/types/stick';
 export const metadata: Metadata = {
   title: 'Workshops',
   description:
-    'Drop-in sessions, taster workshops, and courses with Durham Stick Makers at Fencehouses Community Centre, County Durham.',
+    'Drop-in sessions and taster workshops at Fencehouses Community Centre, County Durham, plus one-day stick making courses with Durham Stick Makers.',
 };
 
 export default async function WorkshopsPage() {
@@ -26,9 +28,8 @@ export default async function WorkshopsPage() {
           <span className="label-caps">Workshops</span>
           <h1 className="mt-2 font-heading text-hero">Learn alongside us</h1>
           <p className="mt-4 text-stick-shale text-lg">
-            Drop in to a regular Monday or Tuesday evening, or book a one-off taster or course.
-            Every session is led by members of the charity and runs out of Fencehouses Community
-            Centre.
+            Drop in to a regular Monday or Tuesday evening, book a one-off taster, or arrange a
+            one-day course and go home with a stick you made yourself.
           </p>
         </div>
 
@@ -58,6 +59,21 @@ export default async function WorkshopsPage() {
             </ul>
           </div>
         </div>
+
+        {/* Courses: standing courses booked by phone on dates by arrangement */}
+        {COURSES.length > 0 && (
+          <div className="mt-14">
+            <h2 className="font-heading text-h1">Courses</h2>
+            <p className="mt-2 text-stick-shale">
+              Run on dates to suit you. Call to arrange a day.
+            </p>
+            <div className="mt-8 space-y-6">
+              {COURSES.map((c) => (
+                <CourseCard key={c.slug} course={c} />
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Upcoming */}
         <div className="mt-14">

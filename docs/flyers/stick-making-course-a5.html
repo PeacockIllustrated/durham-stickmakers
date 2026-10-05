@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Stick Making Course — A5 flyer</title>
+<style>
+/* A5 (148 × 210 mm) + 3 mm bleed on every edge = 154 × 216 mm page.
+   Keep all type inside the 8 mm safe zone (11 mm from the page edge). */
+@page { size: 154mm 216mm; margin: 0; }
+
+@font-face { font-family: 'DM Serif Display'; src: url(fonts/dmserif.woff2) format('woff2'); font-style: normal; }
+@font-face { font-family: 'DM Serif Display'; src: url(fonts/dmserif-italic.woff2) format('woff2'); font-style: italic; }
+@font-face { font-family: 'Inter'; src: url(fonts/inter.woff2) format('woff2'); font-weight: 100 900; }
+
+:root {
+  /* Brand tokens (tailwind.config.ts) */
+  --walnut: #2F3842;
+  --shale: #4A5563;
+  --linen: #FAFAF8;
+  --brass: #C4A265;
+  --stone: #E4E7EC;
+  --driftwood: #7A8593;
+  --cream: #EEF0F3;
+  /* Print-only derivatives: brass deep enough for type on linen (4.6:1),
+     and a light slate for small type on walnut (5.4:1). */
+  --brass-ink: #8A6A30;
+  --mist: #A9B2BD;
+
+  /* Seven-step type scale */
+  --t-label: 6.3pt;
+  --t-small: 7.6pt;
+  --t-body: 9.2pt;
+  --t-h3: 12.5pt;
+  --t-h2a: 19pt;
+  --t-h2: 25pt;
+  --t-h1: 40pt;
+
+  --safe: 11mm;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #9aa3ad; }
+body { font-family: 'Inter', system-ui, sans-serif; color: var(--shale); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+.page {
+  position: relative;
+  width: 154mm; height: 216mm;
+  overflow: hidden;
+  break-after: page;
+  background: var(--linen);
+}
+@media screen { .page { margin: 10mm auto; box-shadow: 0 6px 30px rgba(0,0,0,.25); } }
+
+.serif { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; }
+.label { font-size: var(--t-label); font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
+
+/* Wordmark: the site's own lock-up is type only (DM Serif), so no invented logo */
+.wordmark .name { font-size: var(--t-h3); line-height: 1; color: var(--walnut); }
+.wordmark .sub { font-size: var(--t-label); letter-spacing: .2em; text-transform: uppercase; font-weight: 600; margin-top: 1.4mm; }
+.wordmark .rule { display: block; width: 7mm; height: .45mm; background: var(--brass); margin: 1.6mm 0 0; }
+
+/* ───────────────────────── FRONT ───────────────────────── */
+.front { background: var(--walnut); color: var(--linen); }
+
+.front .photo {
+  position: absolute; left: 0; right: 0; top: 0; height: 141mm;
+  background: url(../../public/images/gallery/display-lineup-panoramic.jpg) no-repeat;
+  background-size: 212mm auto;
+  background-position: 64% 8%;
+}
+.front .photo::after {
+  content: ''; position: absolute; inset: auto 0 0 0; height: 40mm;
+  background: linear-gradient(to bottom, rgba(47,56,66,0) 0%, rgba(47,56,66,.6) 50%, var(--walnut) 100%);
+}
+
+.front .masthead { position: absolute; top: var(--safe); left: var(--safe); }
+.front .masthead .sub { color: var(--shale); }
+
+.seal { position: absolute; width: 31mm; height: 31mm; right: 10mm; top: 109mm; z-index: 3; filter: drop-shadow(0 .6mm 1.2mm rgba(20,26,32,.35)); }
+
+.front .panel {
+  position: absolute; left: var(--safe); right: var(--safe); top: 130mm; bottom: var(--safe);
+  display: flex; flex-direction: column;
+}
+.front .kicker { color: var(--brass); display: flex; align-items: center; gap: 3mm; }
+.front .kicker::after { content: ''; width: 12mm; height: .35mm; background: var(--brass); }
+.front h1 { font-size: var(--t-h1); line-height: .96; letter-spacing: -.012em; margin-top: 3mm; }
+.front h1 em { font-style: italic; color: var(--brass); }
+.front .lede { font-size: var(--t-body); line-height: 1.5; color: #D5DAE1; margin-top: 4mm; max-width: 100mm; }
+.front .lede strong { color: var(--linen); font-weight: 600; }
+
+.front .foot {
+  margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between;
+  border-top: .3mm solid rgba(196,162,101,.5); padding-top: 3.6mm;
+}
+.front .call .label { color: var(--mist); }
+.front .call .num { font-size: var(--t-h2a); line-height: 1; margin-top: 1.6mm; }
+.front .call .num span { color: var(--brass); }
+.front .gift { text-align: right; font-size: var(--t-small); line-height: 1.45; color: #D5DAE1; }
+.front .gift .label { display: block; color: var(--brass); margin-bottom: 1.2mm; }
+.front .gift .url { font-size: var(--t-body); color: var(--linen); font-weight: 500; letter-spacing: .01em; }
+
+/* ───────────────────────── BACK ───────────────────────── */
+.back .inner { position: absolute; inset: var(--safe); display: flex; flex-direction: column; }
+.back .inner > * { flex-shrink: 0; }
+
+.back .top { display: flex; justify-content: space-between; align-items: flex-start; }
+.back .top .sub { color: var(--shale); }
+.back .top .where { text-align: right; font-size: var(--t-small); line-height: 1.45; color: var(--shale); }
+.back .top .where .label { display: block; color: var(--brass-ink); margin-bottom: .6mm; }
+
+.back h2 { font-size: var(--t-h2); line-height: 1.04; color: var(--walnut); margin-top: 7mm; letter-spacing: -.005em; }
+.back h2 em { color: var(--brass-ink); font-style: italic; }
+.back .intro { font-size: var(--t-body); line-height: 1.5; margin-top: 3mm; max-width: 122mm; }
+
+/* The day: the timeline is drawn as a stick, crook at the top, ferrule at the foot */
+.day { position: relative; margin-top: 11mm; padding-left: 15mm; }
+.day .shank { position: absolute; left: 0; top: -2mm; height: calc(100% + 1mm); width: 12mm; }
+.day .crook { position: absolute; left: 3.15mm; top: -9mm; width: 11mm; height: 7mm; overflow: visible; }
+.step { position: relative; padding-bottom: 3mm; }
+.step:last-child { padding-bottom: 0; }
+.step .n {
+  position: absolute; left: -12.15mm; top: -.3mm;
+  width: 6.3mm; height: 6.3mm; border-radius: 50%;
+  background: var(--linen); border: .45mm solid var(--brass); color: var(--walnut);
+  font-family: 'DM Serif Display', serif; font-size: var(--t-body); line-height: 5.4mm; text-align: center;
+}
+.step h3 { font-size: var(--t-h3); line-height: 1.15; color: var(--walnut); }
+.step p { font-size: var(--t-small); line-height: 1.45; margin-top: .7mm; }
+
+/* Included: a ruled three-column list, not a card of icon discs */
+.included { margin-top: 7mm; margin-bottom: 7mm; border-top: .3mm solid var(--walnut); padding-top: 2.6mm; }
+.included > .label { color: var(--walnut); }
+.inc-grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 5mm; margin-top: 3.4mm; }
+.inc { border-left: .3mm solid var(--stone); padding-left: 3mm; }
+.inc:first-child { border-left: 0; padding-left: 0; }
+.inc { display: grid; grid-template-columns: 5.4mm 1fr; column-gap: 2mm; align-items: center; }
+.inc svg { width: 5.4mm; height: 5.4mm; display: block; }
+.inc span { grid-column: 1 / -1; }
+.inc b { display: block; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: var(--t-body); color: var(--walnut); line-height: 1.15; }
+.inc span { display: block; font-size: var(--t-small); line-height: 1.4; margin-top: 1.4mm; }
+
+/* Booking block */
+.book {
+  margin-top: auto; background: var(--walnut); color: var(--linen); border-radius: 2mm;
+  display: grid; grid-template-columns: 37mm 1fr; overflow: hidden;
+}
+.book .price { background: var(--brass); color: var(--walnut); padding: 4.2mm 4mm; display: flex; flex-direction: column; justify-content: center; }
+.book .price .amt { font-size: var(--t-h2); line-height: 1; margin-top: 1.4mm; font-variant-numeric: lining-nums; }
+.book .price .per { font-size: var(--t-small); font-weight: 500; margin-top: 1.2mm; }
+.book .contact { padding: 4.2mm 5mm; }
+.book .contact .label { color: var(--brass); }
+.book .num { font-size: var(--t-h2a); line-height: 1; margin-top: 2mm; margin-bottom: 2.4mm; }
+.book .num span { color: var(--brass); }
+.book .row { display: flex; align-items: center; gap: 2mm; font-size: var(--t-small); margin-top: 1.6mm; color: #D5DAE1; }
+.book .row svg { width: 3.2mm; height: 3.2mm; flex: none; }
+
+/* Gift voucher: drawn as a ticket stub */
+.voucher { display: flex; align-items: center; gap: 4mm; margin-top: 3.6mm; }
+.ticket {
+  position: relative; flex: none; padding: 2.2mm 5mm 2.2mm 4.4mm;
+  background:
+    radial-gradient(circle at 0 50%, var(--linen) 1.5mm, transparent 1.6mm),
+    radial-gradient(circle at 100% 50%, var(--linen) 1.5mm, transparent 1.6mm),
+    var(--cream);
+  border-radius: 1mm;
+}
+.ticket::before { content: ''; position: absolute; inset: 1mm 2.6mm; border: .25mm dashed var(--driftwood); border-radius: .6mm; }
+.ticket .serif { position: relative; font-size: var(--t-body); color: var(--walnut); line-height: 1.1; }
+.ticket .label { position: relative; display: block; color: var(--brass-ink); margin-top: .5mm; }
+.voucher p { font-size: var(--t-small); line-height: 1.45; }
+
+.colophon { display: flex; justify-content: space-between; margin-top: 3.6mm; padding-top: 2.6mm; border-top: .25mm solid var(--stone); font-size: var(--t-label); color: var(--shale); letter-spacing: .04em; }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ FRONT ═════════════ -->
+<section class="page front">
+  <div class="photo"></div>
+
+  <header class="masthead wordmark">
+    <div class="name serif">Durham Stick Makers</div>
+    <span class="rule"></span>
+    <div class="sub">Preserving a heritage craft</div>
+  </header>
+
+  <!-- Price seal -->
+  <svg class="seal" viewBox="0 0 120 120" aria-label="One day course, £120 per person, all inclusive">
+    <defs>
+      <!-- top arc runs clockwise (letters face out); bottom arc runs left to right
+           underneath (letters face in) so both read upright -->
+      <path id="arc-top" d="M15 60 A45 45 0 0 1 105 60"/>
+      <path id="arc-bottom" d="M9 60 A51 51 0 0 0 111 60"/>
+    </defs>
+    <circle cx="60" cy="60" r="58" fill="#C4A265"/>
+    <circle cx="60" cy="60" r="55.2" fill="none" stroke="#2F3842" stroke-width=".7"/>
+    <circle cx="60" cy="60" r="35.5" fill="none" stroke="#2F3842" stroke-width=".7"/>
+    <circle cx="60" cy="60" r="33.3" fill="none" stroke="#2F3842" stroke-width=".35" opacity=".6"/>
+    <g font-family="Inter" font-weight="700" font-size="8.2" letter-spacing="2.6" fill="#2F3842">
+      <text><textPath href="#arc-top" startOffset="50%" text-anchor="middle">ONE DAY COURSE</textPath></text>
+      <text><textPath href="#arc-bottom" startOffset="50%" text-anchor="middle">ALL INCLUSIVE</textPath></text>
+    </g>
+    <!-- side ornaments -->
+    <path d="M12.2 60 l2.2 -2.2 l2.2 2.2 l-2.2 2.2 z M103.4 60 l2.2 -2.2 l2.2 2.2 l-2.2 2.2 z" fill="#2F3842"/>
+    <text x="60" y="64.5" text-anchor="middle" font-family="DM Serif Display" font-size="25" fill="#2F3842">£120</text>
+    <path d="M51 69.5 h18" stroke="#2F3842" stroke-width=".5" opacity=".6"/>
+    <text x="60" y="76" text-anchor="middle" font-family="Inter" font-weight="600" font-size="5.2" letter-spacing="1.3" fill="#2F3842">PER PERSON</text>
+  </svg>
+
+  <div class="panel">
+    <div class="label kicker">Stick making course</div>
+    <h1 class="serif">Make your own<br><em>country stick</em></h1>
+    <p class="lede">A one-day, hands-on course in a craft that’s been handed down for generations. Straighten a shank, choose your handle, fix it and finish it — then <strong>walk out with a stick you made yourself.</strong></p>
+
+    <div class="foot">
+      <div class="call">
+        <div class="label">To book, call Roger</div>
+        <div class="num serif">07715 <span>422651</span></div>
+      </div>
+      <div class="gift">
+        <span class="label">Gift vouchers available</span>
+        <span class="url">durham-stickmakers.co.uk</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ BACK ═════════════ -->
+<section class="page back">
+  <div class="inner">
+    <div class="top">
+      <div class="wordmark">
+        <div class="name serif">Durham Stick Makers</div>
+        <span class="rule"></span>
+        <div class="sub">Preserving a heritage craft</div>
+      </div>
+      <div class="where">
+        <span class="label">One day course</span>
+        North Leeds
+      </div>
+    </div>
+
+    <h2 class="serif">From rough shank to <em>finished&nbsp;stick</em> in a&nbsp;day</h2>
+    <p class="intro">No experience needed. You’ll work at the bench with an experienced stick maker, using proper tools, and go home with a one-of-a-kind country stick.</p>
+
+    <div class="day">
+      <svg class="shank" viewBox="0 0 12 100" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="6" y1="0" x2="6" y2="97" stroke="#C4A265" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+        <line x1="6" y1="96" x2="6" y2="100" stroke="#2F3842" stroke-width="3.2" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <svg class="crook" viewBox="0 0 22 14" aria-hidden="true">
+        <path d="M5.85 18 V7 a6 6 0 0 1 12 0 c0 2.4 -1.5 3.8 -3.3 3.8" fill="none" stroke="#2F3842" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+
+      <div class="step">
+        <div class="n">1</div>
+        <h3 class="serif">Straighten your stick</h3>
+        <p>Learn how to heat and set a natural shank so it runs true.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3 class="serif">Choose your handle type</h3>
+        <p>Look through the options and pick the handle style that suits you.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3 class="serif">Fix handle to stick</h3>
+        <p>Shape, fit and secure the joint the traditional way.</p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <h3 class="serif">Finish and take home</h3>
+        <p>Sand, seal and polish — your stick leaves with you at the end of the day.</p>
+      </div>
+    </div>
+
+    <div class="included">
+      <div class="label">Everything included</div>
+      <div class="inc-grid">
+        <div class="inc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2F3842" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 20 L14 11"/><path d="M13 9.5 l3.2 -3.2 a2.4 2.4 0 0 1 3.4 3.4 L16.4 12.9 z" fill="#C4A265"/>
+            <path d="M19 20 L10 11"/><path d="M7 10.5 l-2.5 -2.5 l2.2 -3.2 l3.3 2.3 z" fill="#C4A265"/>
+          </svg>
+          <b>Materials &amp; equipment</b>
+          <span>Shanks, handles and full use of the workshop tools</span>
+        </div>
+        <div class="inc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2F3842" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 10 h12 v4.5 a6 6 0 0 1 -12 0 z" fill="#C4A265"/>
+            <path d="M16 11.5 h1.5 a2.5 2.5 0 0 1 0 5 h-2"/>
+            <path d="M7.5 3.5 c-1 1.4 1 2.2 0 3.6 M11.5 3.5 c-1 1.4 1 2.2 0 3.6"/>
+            <path d="M3 22 h14"/>
+          </svg>
+          <b>Lunch &amp; drinks</b>
+          <span>Morning coffee, lunch and drinks through the day</span>
+        </div>
+        <div class="inc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2F3842" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2.5 l7.5 3 v6 c0 5 -3.4 8.2 -7.5 9.8 c-4.1 -1.6 -7.5 -4.8 -7.5 -9.8 v-6 z" fill="#C4A265"/>
+            <path d="M8.6 12 l2.4 2.4 l4.4 -4.6"/>
+          </svg>
+          <b>Insurance</b>
+          <span>You’re covered for the day while you work</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="book">
+      <div class="price">
+        <div class="label">Per person</div>
+        <div class="amt serif">£120</div>
+        <div class="per">Full day, all inclusive</div>
+      </div>
+      <div class="contact">
+        <div class="label">Book your place — call Roger</div>
+        <div class="num serif">07715 <span>422651</span></div>
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C4A265" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+          rdwilliams471@gmail.com
+        </div>
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C4A265" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5z"/></svg>
+          durham-stickmakers.co.uk
+        </div>
+      </div>
+    </div>
+
+    <div class="voucher">
+      <div class="ticket">
+        <div class="serif">Gift vouchers available</div>
+        <span class="label">The ideal gift</span>
+      </div>
+      <p>For walkers, shepherds and anyone who loves the countryside.</p>
+    </div>
+
+    <div class="colophon">
+      <span>durham-stickmakers.co.uk</span>
+      <span>Registered Charity 1212357</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
