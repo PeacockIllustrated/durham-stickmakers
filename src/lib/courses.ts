@@ -38,10 +38,10 @@ export const COURSES: Course[] = [
     slug: 'make-your-own-country-stick',
     title: 'Make your own country stick',
     summary:
-      'A one-day, hands-on course. Straighten a shank, choose your handle, fix it and finish it, then take home a stick you made yourself.',
+      'A two-day, hands-on course. Straighten a shank, choose your handle, fix it and finish it, then take home a stick you made yourself.',
     intro:
       'No experience needed. You’ll work at the bench with an experienced stick maker, using proper tools, and go home with a one-of-a-kind country stick.',
-    duration: 'One day',
+    duration: 'Two days',
     schedule: 'Dates by arrangement',
     location: 'North Leeds',
     price_pence: 12000,
@@ -61,12 +61,12 @@ export const COURSES: Course[] = [
       },
       {
         title: 'Finish and take home',
-        description: 'Sand, seal and polish. Your stick leaves with you at the end of the day.',
+        description: 'Sand, seal and polish. Your stick leaves with you at the end of the course.',
       },
     ],
     included: [
       'Materials and use of equipment',
-      'Morning coffee, lunch and drinks',
+      'Morning coffee, lunch and drinks on both days',
       'Insurance',
     ],
     giftVouchers: true,
