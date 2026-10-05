@@ -15,6 +15,25 @@ await page.evaluate(() => document.fonts.ready);
 
 await page.pdf({ path: out('stick-making-course-a5.pdf'), preferCSSPageSize: true, printBackground: true });
 
+// Trimmed A5 (no bleed) for screen and home printing, published as the site download.
+// Same layout with the 3 mm bleed removed from every edge.
+const trim = await browser.newPage();
+await trim.goto(`file://${html}`, { waitUntil: 'networkidle' });
+await trim.addStyleTag({ content: `
+  @page { size: 148mm 210mm; margin: 0; }
+  .page { width: 148mm; height: 210mm; margin: 0 !important; --safe: 8mm; }
+  .front .photo { height: 138mm; }
+  .front .panel { top: 127mm; }
+  .seal { top: 106mm; right: 7mm; }
+` });
+await trim.evaluate(() => document.fonts.ready);
+await trim.pdf({
+  path: resolve(__dirname, '../../public/downloads/stick-making-course-a5.pdf'),
+  preferCSSPageSize: true,
+  printBackground: true,
+});
+await trim.close();
+
 // Previews cropped to the A5 trim line (bleed removed)
 await page.emulateMedia({ media: 'print' });
 await page.addStyleTag({ content: 'html,body{background:#fff}.page{margin:0!important;box-shadow:none!important}' });

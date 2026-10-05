@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
+import { COURSES } from '@/lib/courses';
 
 function siteUrl(): string {
   const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
@@ -33,6 +34,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const dynamicEntries: MetadataRoute.Sitemap = [];
+
+  for (const c of COURSES) {
+    staticEntries.push({
+      url: `${base}/workshops/courses/${c.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    });
+  }
 
   if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
     try {
