@@ -16,7 +16,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
   const course = getCourse(params.slug);
   if (!course) return { title: 'Course not found' };
   return {
-    title: `${course.title} | ${course.duration} stick making course`,
+    title: `${course.title} | Stick making course`,
     description: course.summary,
     alternates: { canonical: `/workshops/courses/${course.slug}` },
     openGraph: {
@@ -104,7 +104,7 @@ export default function CoursePage({ params }: PageProps) {
       <section className="section pt-0">
         <div className="container-wide grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-3">
-            <h2 className="font-heading text-h1">The day</h2>
+            <h2 className="font-heading text-h1">The course</h2>
             <ol className="mt-6 space-y-6">
               {course.steps.map((step, i) => (
                 <li key={step.title} className="flex gap-5">
@@ -142,7 +142,7 @@ export default function CoursePage({ params }: PageProps) {
                 Call {course.contact.name} to arrange a date
               </p>
               <p className="mt-3 text-stick-stone">
-                Courses run on dates to suit you. Give {course.contact.name} a ring to find a day
+                Courses run on dates to suit you. Give {course.contact.name} a ring to find dates
                 and reserve your place.
               </p>
               <a

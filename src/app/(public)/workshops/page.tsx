@@ -12,7 +12,7 @@ import type { StickWorkshop } from '@/types/stick';
 export const metadata: Metadata = {
   title: 'Workshops',
   description:
-    'Drop-in sessions and taster workshops at Fencehouses Community Centre, County Durham, plus one-day stick making courses with Durham Stick Makers.',
+    'Drop-in sessions and taster workshops at Fencehouses Community Centre, County Durham, plus two-day stick making courses with Durham Stick Makers.',
 };
 
 export default async function WorkshopsPage() {
@@ -29,7 +29,7 @@ export default async function WorkshopsPage() {
           <h1 className="mt-2 font-heading text-hero">Learn alongside us</h1>
           <p className="mt-4 text-stick-shale text-lg">
             Drop in to a regular Monday or Tuesday evening, book a one-off taster, or arrange a
-            one-day course and go home with a stick you made yourself.
+            two-day course and go home with a stick you made yourself.
           </p>
         </div>
 
@@ -65,7 +65,7 @@ export default async function WorkshopsPage() {
           <div className="mt-14">
             <h2 className="font-heading text-h1">Courses</h2>
             <p className="mt-2 text-stick-shale">
-              Run on dates to suit you. Call to arrange a day.
+              Run on dates to suit you. Call to arrange dates.
             </p>
             <div className="mt-8 space-y-6">
               {COURSES.map((c) => (

@@ -25,7 +25,7 @@ export function CourseCard({ course }: { course: Course }) {
 
       <div className="flex flex-col p-6 md:col-span-3 md:p-8">
         <p className="label-caps">
-          {course.duration} course · {course.location}
+          {course.duration} · {course.location}
         </p>
         <h3 className="mt-2 font-heading text-h2 leading-tight">{course.title}</h3>
         <p className="mt-3 text-stick-shale leading-relaxed">{course.summary}</p>
